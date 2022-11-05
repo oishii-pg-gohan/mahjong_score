@@ -23,6 +23,7 @@ class AppScreenS extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return SafeArea(
       child: Scaffold(
+        backgroundColor: Colors.white,
         appBar: AppBar(
           centerTitle: true,
           title: const Text('まーじゃん てんすうけいさん'),
