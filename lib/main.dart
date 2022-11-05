@@ -1,15 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:mahjong_score/const.dart';
-import 'package:mahjong_score/screen/main/app_screen.dart';
+import 'package:mahjong_score/view/main/app_screen.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  SystemChrome.setPreferredOrientations([
-    DeviceOrientation.landscapeLeft,
-    DeviceOrientation.landscapeRight,
-  ]).then((_) => runApp(const ProviderScope(child: MyApp())));
+  runApp(const ProviderScope(child: MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -18,12 +14,12 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return const MTemboo();
+    return const MahjongScore();
   }
 }
 
-class MTemboo extends StatelessWidget {
-  const MTemboo({Key? key}) : super(key: key);
+class MahjongScore extends StatelessWidget {
+  const MahjongScore({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -33,6 +29,9 @@ class MTemboo extends StatelessWidget {
         AppScreen.id: (context) => const AppScreen(),
       },
       theme: ThemeData(
+        appBarTheme: AppBarTheme(
+          backgroundColor: kColorPrimary,
+        ),
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
             backgroundColor: kColorPrimary,

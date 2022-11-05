@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:mahjong_score/view/main/screen/app_screen_s.dart';
 
 class AppScreen extends ConsumerWidget {
   static const String id = 'app_screen';
@@ -8,14 +9,6 @@ class AppScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return SafeArea(
-      child: Scaffold(
-        backgroundColor: Colors.green[600],
-        body: Container(
-          color: Colors.green,
-          child: const Text('mahjong_socre'),
-        ),
-      ),
-    );
+    return const AppScreenS();
   }
 }
