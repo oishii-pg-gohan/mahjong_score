@@ -29,6 +29,7 @@ class MahjongScore extends StatelessWidget {
         AppScreen.id: (context) => const AppScreen(),
       },
       theme: ThemeData(
+        fontFamily: 'Noto Sans JP',
         appBarTheme: AppBarTheme(
           backgroundColor: kColorPrimary,
         ),
