@@ -44,6 +44,9 @@ class MahjongScore extends StatelessWidget {
         floatingActionButtonTheme: FloatingActionButtonThemeData(
           backgroundColor: kColorPrimary,
         ),
+        checkboxTheme: CheckboxThemeData(
+          fillColor: MaterialStateProperty.all(kColorPrimary),
+        ),
       ),
     );
   }
