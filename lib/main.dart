@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:mahjong_score/const.dart';
 import 'package:mahjong_score/view/main/app_screen.dart';
@@ -23,6 +24,9 @@ class MahjongScore extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setSystemUIOverlayStyle(
+      SystemUiOverlayStyle(statusBarColor: kColorPrimary),
+    );
     return MaterialApp(
       initialRoute: AppScreen.id,
       routes: {
@@ -32,6 +36,9 @@ class MahjongScore extends StatelessWidget {
         fontFamily: 'Noto Sans JP',
         appBarTheme: AppBarTheme(
           backgroundColor: kColorPrimary,
+          systemOverlayStyle: SystemUiOverlayStyle(
+            statusBarColor: kColorPrimary,
+          ),
         ),
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
