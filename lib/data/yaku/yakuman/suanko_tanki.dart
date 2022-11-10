@@ -17,6 +17,7 @@ class SuankoTanki extends Yakuman {
             YakuId.shosushi, //小四喜
             YakuId.tsuiso, //字一色
             YakuId.ryuiso, //緑一色
+            YakuId.sukantsu, //四槓子
             YakuId.chinroto, //清老頭
             YakuId.tenho, // 天和
             YakuId.chiho, // 地和
