@@ -18,10 +18,10 @@ class Tenho extends Yakuman {
             YakuId.tsuiso, //字一色
             YakuId.ryuiso, //緑一色
             YakuId.suanko, //四暗刻
+            YakuId.suankoTanki, //四暗刻単騎
             YakuId.chinroto, //清老頭
             YakuId.churenpoto, // 九蓮宝燈
             YakuId.kokushimuso, // 国士無双
-            YakuId.chiho, // 地和
           ],
           sortId: 44,
         );

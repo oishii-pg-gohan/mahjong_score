@@ -18,6 +18,8 @@ class Sukantsu extends Yakuman {
             YakuId.shosushi, //小四喜
             YakuId.tsuiso, //字一色
             YakuId.ryuiso, //緑一色
+            YakuId.suanko, //四暗刻
+            YakuId.suankoTanki, //四暗刻単騎
             YakuId.chinroto, //清老頭
           ],
           sortId: 40,

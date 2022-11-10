@@ -17,6 +17,7 @@ class Tsuiso extends Yakuman {
             YakuId.daisushi, // 大四喜
             YakuId.shosushi, //小四喜
             YakuId.suanko, //四暗刻
+            YakuId.suankoTanki, //四暗刻単騎
             YakuId.sukantsu, //四槓子
             YakuId.tenho, // 天和
             YakuId.chiho, // 地和
