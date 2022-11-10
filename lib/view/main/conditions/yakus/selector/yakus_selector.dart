@@ -6,10 +6,12 @@ import 'package:mahjong_score/view/main/conditions/yakus/selector/yaku_selector.
 class YakusSelector extends ConsumerWidget {
   const YakusSelector({
     required this.yakuIds,
+    this.custonActionWhenSelected,
     super.key,
   });
 
   final List<YakuId> yakuIds;
+  final Function? custonActionWhenSelected;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -21,6 +23,7 @@ class YakusSelector extends ConsumerWidget {
                 (e) => YakuSelector(
                   id: e.id,
                   name: e.name,
+                  customAction: custonActionWhenSelected,
                 ),
               )
               .toList()),

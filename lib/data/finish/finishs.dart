@@ -43,7 +43,11 @@ enum FinishId {
   haneman,
   baiman,
   sanbaiman,
+  // 役満
   yakuman,
+  yakuman2,
+  yakuman3,
+  yakuman4,
   // 異常系
   unknonw
 }
@@ -90,7 +94,11 @@ Map<FinishId, FinishOya> mapFinishOya = {
   FinishId.haneman: FinishOya(scoreRon: 18000, scoreAll: 6000),
   FinishId.baiman: FinishOya(scoreRon: 24000, scoreAll: 8000),
   FinishId.sanbaiman: FinishOya(scoreRon: 36000, scoreAll: 12000),
+  // 役満
   FinishId.yakuman: FinishOya(scoreRon: 48000, scoreAll: 16000),
+  FinishId.yakuman2: FinishOya(scoreRon: 96000, scoreAll: 32000),
+  FinishId.yakuman3: FinishOya(scoreRon: 144000, scoreAll: 48000),
+  FinishId.yakuman4: FinishOya(scoreRon: 192000, scoreAll: 64000),
 };
 
 Map<FinishId, FinishKo> mapFinishKo = {
@@ -275,5 +283,20 @@ Map<FinishId, FinishKo> mapFinishKo = {
     scoreRon: 32000,
     scoreFromKo: 8000,
     scoreFromOya: 16000,
+  ),
+  FinishId.yakuman2: FinishKo(
+    scoreRon: 64000,
+    scoreFromKo: 16000,
+    scoreFromOya: 32000,
+  ),
+  FinishId.yakuman3: FinishKo(
+    scoreRon: 96000,
+    scoreFromKo: 24000,
+    scoreFromOya: 48000,
+  ),
+  FinishId.yakuman4: FinishKo(
+    scoreRon: 128000,
+    scoreFromKo: 32000,
+    scoreFromOya: 64000,
   ),
 };

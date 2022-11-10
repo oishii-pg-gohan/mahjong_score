@@ -8,11 +8,13 @@ class YakuSelector extends ConsumerWidget {
   const YakuSelector({
     required this.id,
     required this.name,
+    this.customAction,
     Key? key,
   }) : super(key: key);
 
   final YakuId id;
   final String name;
+  final Function? customAction;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -27,6 +29,9 @@ class YakuSelector extends ConsumerWidget {
         if (val!) {
           ref.read(selectedYakusProvider.notifier).add(id);
           ref.read(enabledShareYakusProvider.notifier).extractId(id);
+          if (customAction != null) {
+            customAction!();
+          }
         } else {
           ref.read(selectedYakusProvider.notifier).delete(id);
           List<YakuId> deletedIds =
