@@ -8,16 +8,10 @@ class MenzenSelector extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return Row(
-      children: [
-        const Text('門前'),
-        Switch(
-          value: ref.watch(menzenSelectedProvider),
-          activeColor: kColorPrimary,
-          onChanged: (val) =>
-              ref.read(menzenSelectedProvider.notifier).state = val,
-        ),
-      ],
+    return Switch(
+      value: ref.watch(menzenSelectedProvider),
+      activeColor: kColorPrimary,
+      onChanged: (val) => ref.read(menzenSelectedProvider.notifier).state = val,
     );
   }
 }

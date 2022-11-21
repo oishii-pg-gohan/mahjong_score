@@ -14,7 +14,7 @@ class AtamaSelector extends ConsumerWidget {
       value: null,
       hint: Row(
         children: [
-          Text('アタマ：${mapFuAtamaName[ref.watch(atamaProvider)]}'),
+          Text('${mapFuAtamaName[ref.watch(atamaProvider)]}'),
         ],
       ),
       elevation: 10,

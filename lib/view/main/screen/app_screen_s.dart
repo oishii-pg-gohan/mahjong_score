@@ -40,6 +40,9 @@ class AppScreenS extends ConsumerWidget {
                     height: 30,
                   ),
                   ResultAreaS(),
+                  SizedBox(
+                    height: 100,
+                  ),
                 ],
               ),
             ),

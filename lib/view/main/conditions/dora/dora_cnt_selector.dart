@@ -10,24 +10,20 @@ class DoraCntSelector extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return DropdownButton<int>(
-      isExpanded: false,
-      value: null,
-      hint: Row(
-        children: [
-          Text('ドラ ${ref.watch(doraCntProvider)}'),
-        ],
+    return Center(
+      child: DropdownButton<int>(
+        isExpanded: false,
+        value: ref.watch(doraCntProvider),
+        elevation: 10,
+        icon: null,
+        underline: Container(
+          height: 2,
+          color: kColorPrimary,
+        ),
+        onChanged: (int? selected) =>
+            ref.read(doraCntProvider.notifier).state = selected!,
+        items: _buildItems(context, ref),
       ),
-      elevation: 10,
-      // style: const TextStyle(color: Colors.grey),
-      icon: null,
-      underline: Container(
-        height: 2,
-        color: kColorPrimary,
-      ),
-      onChanged: (int? selected) =>
-          ref.read(doraCntProvider.notifier).state = selected!,
-      items: _buildItems(context, ref),
     );
   }
 

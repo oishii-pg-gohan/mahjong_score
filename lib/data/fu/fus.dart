@@ -27,6 +27,7 @@ const Map<int, FuId> mapFu = {
 };
 
 enum FuMentsu {
+  none,
   shuntsu,
   chuchanpaiPon,
   chuchanpaiAnko,
@@ -39,6 +40,7 @@ enum FuMentsu {
 }
 
 const Map<FuMentsu, int> mapFuMentsu = {
+  FuMentsu.none: 0,
   FuMentsu.shuntsu: 0,
   FuMentsu.chuchanpaiPon: 2,
   FuMentsu.chuchanpaiAnko: 4,
