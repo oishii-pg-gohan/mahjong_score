@@ -8,16 +8,10 @@ class OyakoSelector extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return Row(
-      children: [
-        const Text('親'),
-        Switch(
-          value: ref.watch(oyakoSelectedProvider),
-          activeColor: kColorPrimary,
-          onChanged: (val) =>
-              ref.read(oyakoSelectedProvider.notifier).state = val,
-        ),
-      ],
+    return Switch(
+      value: ref.watch(oyakoSelectedProvider),
+      activeColor: kColorPrimary,
+      onChanged: (val) => ref.read(oyakoSelectedProvider.notifier).state = val,
     );
   }
 }

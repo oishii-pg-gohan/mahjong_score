@@ -8,7 +8,7 @@ class ResultScoreUnknown extends StatelessWidget {
     return const Center(
       child: Text(
         '条件を選択してください。',
-        style: TextStyle(fontSize: 30),
+        style: TextStyle(fontSize: 26),
       ),
     );
   }

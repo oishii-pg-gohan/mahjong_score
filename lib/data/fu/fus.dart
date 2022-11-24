@@ -10,6 +10,11 @@ enum FuId {
   fu90,
   fu100,
   fu110,
+  fu120,
+  fu130,
+  fu140,
+  fu150,
+  fu160,
 }
 
 const Map<int, FuId> mapFu = {
@@ -24,9 +29,15 @@ const Map<int, FuId> mapFu = {
   90: FuId.fu90,
   100: FuId.fu100,
   110: FuId.fu110,
+  120: FuId.fu120,
+  130: FuId.fu130,
+  140: FuId.fu140,
+  150: FuId.fu150,
+  160: FuId.fu160,
 };
 
 enum FuMentsu {
+  none,
   shuntsu,
   chuchanpaiPon,
   chuchanpaiAnko,
@@ -39,6 +50,7 @@ enum FuMentsu {
 }
 
 const Map<FuMentsu, int> mapFuMentsu = {
+  FuMentsu.none: 0,
   FuMentsu.shuntsu: 0,
   FuMentsu.chuchanpaiPon: 2,
   FuMentsu.chuchanpaiAnko: 4,

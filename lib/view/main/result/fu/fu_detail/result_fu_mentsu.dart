@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:mahjong_score/model/fu_handler.dart';
+import 'package:mahjong_score/view/main/result/fu/fu_detail/result_fu_detail_item.dart';
 import 'package:mahjong_score/view/states/fu/mentsu/mentsu1_provider.dart';
 import 'package:mahjong_score/view/states/fu/mentsu/mentsu2_provider.dart';
 import 'package:mahjong_score/view/states/fu/mentsu/mentsu3_provider.dart';
@@ -18,11 +19,6 @@ class ResultFuMentsu extends ConsumerWidget {
       ref.watch(mentsu4Provider),
     );
 
-    return Center(
-      child: Text(
-        '面子：$fu',
-        style: const TextStyle(fontSize: 20),
-      ),
-    );
+    return ResultFuDetailItem(title: '面子', fu: fu);
   }
 }

@@ -12,28 +12,25 @@ class MentsuSelector extends ConsumerWidget {
   });
 
   final int no;
-  final FuMentsu fuMentsu;
+  final FuMentsu? fuMentsu;
   final Function onChanged;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return DropdownButton<FuMentsu>(
-      isExpanded: false,
-      value: null,
-      hint: Row(
-        children: [
-          Text('面子$no：${mapFuMentsuName[fuMentsu]}'),
-        ],
+    return Center(
+      child: DropdownButton<FuMentsu>(
+        isExpanded: false,
+        value: fuMentsu != FuMentsu.none ? fuMentsu : null,
+        hint: Text('面子$no'),
+        elevation: 10,
+        icon: null,
+        underline: Container(
+          height: 2,
+          color: kColorPrimary,
+        ),
+        onChanged: (FuMentsu? selected) => onChanged(selected),
+        items: _buildItems(context),
       ),
-      elevation: 10,
-      // style: const TextStyle(color: Colors.grey),
-      icon: null,
-      underline: Container(
-        height: 2,
-        color: kColorPrimary,
-      ),
-      onChanged: (FuMentsu? selected) => onChanged(selected),
-      items: _buildItems(context),
     );
   }
 
@@ -41,6 +38,9 @@ class MentsuSelector extends ConsumerWidget {
     List<DropdownMenuItem<FuMentsu>> items = [];
 
     for (FuMentsu mentsu in mapFuMentsu.keys) {
+      if (mentsu == FuMentsu.none) {
+        continue;
+      }
       items.add(
         DropdownMenuItem(
           value: mentsu,

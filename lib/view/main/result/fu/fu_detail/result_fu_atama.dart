@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:mahjong_score/data/fu/fus.dart';
+import 'package:mahjong_score/view/main/result/fu/fu_detail/result_fu_detail_item.dart';
 import 'package:mahjong_score/view/states/fu/atama/atama_provider.dart';
 
 class ResultFuAtama extends ConsumerWidget {
@@ -11,11 +12,6 @@ class ResultFuAtama extends ConsumerWidget {
     FuAtama fuAtama = ref.watch(atamaProvider);
     int fu = mapFuAtama[fuAtama]!;
 
-    return Center(
-      child: Text(
-        'アタマ：$fu',
-        style: const TextStyle(fontSize: 20),
-      ),
-    );
+    return ResultFuDetailItem(title: 'アタマ', fu: fu);
   }
 }

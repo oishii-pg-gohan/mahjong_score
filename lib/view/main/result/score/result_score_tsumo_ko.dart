@@ -20,11 +20,11 @@ class ResultScoreTsumoKo extends ConsumerWidget {
         children: [
           Text(
             '子：${scoreFromKo + honba * 100}点',
-            style: const TextStyle(fontSize: 30),
+            style: const TextStyle(fontSize: 26),
           ),
           Text(
             '親：${scoreFromOya + honba * 100}点',
-            style: const TextStyle(fontSize: 30),
+            style: const TextStyle(fontSize: 26),
           ),
         ],
       ),

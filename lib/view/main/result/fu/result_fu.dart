@@ -23,7 +23,7 @@ class ResultFu extends ConsumerWidget {
       return const Center(
         child: Text(
           '-符',
-          style: TextStyle(fontSize: 30),
+          style: TextStyle(fontSize: 26),
         ),
       );
     }
@@ -42,7 +42,7 @@ class ResultFu extends ConsumerWidget {
     return Center(
       child: Text(
         '$fu符',
-        style: const TextStyle(fontSize: 30),
+        style: const TextStyle(fontSize: 26),
       ),
     );
   }

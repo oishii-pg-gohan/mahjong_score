@@ -8,16 +8,10 @@ class TsumoSelector extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return Row(
-      children: [
-        const Text('ツモ'),
-        Switch(
-          value: ref.watch(tsumoSelectedProvider),
-          activeColor: kColorPrimary,
-          onChanged: (val) =>
-              ref.read(tsumoSelectedProvider.notifier).state = val,
-        ),
-      ],
+    return Switch(
+      value: ref.watch(tsumoSelectedProvider),
+      activeColor: kColorPrimary,
+      onChanged: (val) => ref.read(tsumoSelectedProvider.notifier).state = val,
     );
   }
 }

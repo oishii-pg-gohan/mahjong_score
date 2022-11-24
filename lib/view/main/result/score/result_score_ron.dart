@@ -16,7 +16,7 @@ class ResultScoreRon extends ConsumerWidget {
     return Center(
       child: Text(
         '${score + honba * 300}点',
-        style: const TextStyle(fontSize: 30),
+        style: const TextStyle(fontSize: 26),
       ),
     );
   }

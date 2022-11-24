@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:mahjong_score/model/fu_handler.dart';
+import 'package:mahjong_score/view/main/result/fu/fu_detail/result_fu_detail_item.dart';
 import 'package:mahjong_score/view/states/menzen/menzen_selected_provider.dart';
 import 'package:mahjong_score/view/states/tsumo/tsumo_selected_provider.dart';
 
@@ -14,11 +15,6 @@ class ResultFuKihon extends ConsumerWidget {
       ref.watch(tsumoSelectedProvider),
     );
 
-    return Center(
-      child: Text(
-        '基本：$fu',
-        style: const TextStyle(fontSize: 20),
-      ),
-    );
+    return ResultFuDetailItem(title: '基本', fu: fu);
   }
 }

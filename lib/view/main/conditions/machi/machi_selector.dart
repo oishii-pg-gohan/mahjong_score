@@ -14,7 +14,7 @@ class MachiSelector extends ConsumerWidget {
       value: null,
       hint: Row(
         children: [
-          Text('待ち：${mapFuMachiName[ref.watch(machiProvider)]}'),
+          Text('${mapFuMachiName[ref.watch(machiProvider)]}'),
         ],
       ),
       elevation: 10,
