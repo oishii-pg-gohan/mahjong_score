@@ -1,26 +1,41 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:mahjong_score/data/yaku/yaku.dart';
-import 'package:mahjong_score/model/yaku_handler.dart';
-import 'package:mahjong_score/view/main/result/score/common/result_score_unknown.dart';
-import 'package:mahjong_score/view/main/result/score/regular/result_score_regular.dart';
-import 'package:mahjong_score/view/main/result/score/yakuman/result_score_yakuman.dart';
-import 'package:mahjong_score/view/states/yakus/selected_yakus_provider.dart';
+import 'package:mahjong_score/data/finish/finish_ko.dart';
+import 'package:mahjong_score/data/finish/finish_oya.dart';
+import 'package:mahjong_score/data/finish/finishs.dart';
+import 'package:mahjong_score/view/main/result/score/result_score_ron.dart';
+import 'package:mahjong_score/view/main/result/score/result_score_tsumo_ko.dart';
+import 'package:mahjong_score/view/main/result/score/result_score_tsumo_oya.dart';
+import 'package:mahjong_score/view/main/result/screen/result_score_unknown.dart';
+import 'package:mahjong_score/view/states/oyako/oyako_selected_provider.dart';
+import 'package:mahjong_score/view/states/tsumo/tsumo_selected_provider.dart';
 
 class ResultScore extends ConsumerWidget {
-  const ResultScore({super.key});
+  const ResultScore({required this.id, super.key});
+
+  final FinishId id;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    List<YakuId> selectedYakuIds = ref.watch(selectedYakusProvider);
-    if (selectedYakuIds.isEmpty) {
+    if (id == FinishId.unknonw) {
       return const ResultScoreUnknown();
-    } else if (containsYakuman(selectedYakuIds)) {
-      return ResultScoreYakuman(
-        cntYakuman: selectedYakuIds.length,
-      );
+    }
+
+    bool oya = ref.watch(oyakoSelectedProvider);
+    bool tsumo = ref.watch(tsumoSelectedProvider);
+
+    if (oya) {
+      FinishOya finishOya = mapFinishOya[id]!;
+      return tsumo
+          ? ResultScoreTsumoOya(score: finishOya.scoreAll)
+          : ResultScoreRon(score: finishOya.scoreRon);
     } else {
-      return const ResultScoreRegular();
+      FinishKo finishKo = mapFinishKo[id]!;
+      return tsumo
+          ? ResultScoreTsumoKo(
+              scoreFromKo: finishKo.scoreFromKo,
+              scoreFromOya: finishKo.scoreFromOya)
+          : ResultScoreRon(score: finishKo.scoreRon);
     }
   }
 }

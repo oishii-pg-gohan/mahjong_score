@@ -37,7 +37,7 @@ class AppScreenS extends ConsumerWidget {
                 children: const [
                   ConditionsAreaS(),
                   SizedBox(
-                    height: 30,
+                    height: 10,
                   ),
                   ResultAreaS(),
                   SizedBox(

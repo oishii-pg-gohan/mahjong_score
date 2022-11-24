@@ -4,7 +4,6 @@ import 'package:mahjong_score/view/main/conditions/atama/atama_frame.dart';
 import 'package:mahjong_score/view/main/conditions/dora/dora_frame.dart';
 import 'package:mahjong_score/view/main/conditions/honba/honba_frame.dart';
 import 'package:mahjong_score/view/main/conditions/machi/machi_frame.dart';
-import 'package:mahjong_score/view/main/conditions/machi/machi_selector.dart';
 import 'package:mahjong_score/view/main/conditions/mentsu/mentsu_frame.dart';
 import 'package:mahjong_score/view/main/conditions/menzen/menzen_frame.dart';
 import 'package:mahjong_score/view/main/conditions/oyako/oyako_frame.dart';

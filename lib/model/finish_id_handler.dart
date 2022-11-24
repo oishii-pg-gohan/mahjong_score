@@ -9,6 +9,9 @@ FinishId getFinishId(int han, FuId fu, bool hasPinfu, bool hasChitoitsu) {
     id = _getFinishIdWhenChitoitsu(han);
   } else {
     switch (han) {
+      case 0:
+        id = FinishId.unknonw;
+        break;
       case 1:
         id = _getFinishIdWhenHan1(fu);
         break;
@@ -81,6 +84,11 @@ FinishId _getFinishIdWhenHan1(FuId fu) {
     case FuId.fu100:
       return FinishId.han1fu100;
     case FuId.fu110:
+    case FuId.fu120:
+    case FuId.fu130:
+    case FuId.fu140:
+    case FuId.fu150:
+    case FuId.fu160:
       return FinishId.han1fu110;
     default:
       return FinishId.unknonw;
@@ -106,6 +114,11 @@ FinishId _getFinishIdWhenHan2(FuId fu) {
     case FuId.fu100:
       return FinishId.han2fu100;
     case FuId.fu110:
+    case FuId.fu120:
+    case FuId.fu130:
+    case FuId.fu140:
+    case FuId.fu150:
+    case FuId.fu160:
       return FinishId.han2fu110;
     default:
       return FinishId.unknonw;
@@ -125,6 +138,13 @@ FinishId _getFinishIdWhenHan3(FuId fu) {
     case FuId.fu70:
     case FuId.fu80:
     case FuId.fu90:
+    case FuId.fu100:
+    case FuId.fu110:
+    case FuId.fu120:
+    case FuId.fu130:
+    case FuId.fu140:
+    case FuId.fu150:
+    case FuId.fu160:
       return FinishId.mangan;
     default:
       return FinishId.unknonw;
@@ -141,6 +161,13 @@ FinishId _getFinishIdWhenHan4(FuId fu) {
     case FuId.fu70:
     case FuId.fu80:
     case FuId.fu90:
+    case FuId.fu100:
+    case FuId.fu110:
+    case FuId.fu120:
+    case FuId.fu130:
+    case FuId.fu140:
+    case FuId.fu150:
+    case FuId.fu160:
       return FinishId.mangan;
     default:
       return FinishId.unknonw;

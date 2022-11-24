@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:mahjong_score/data/finish/finishs.dart';
-import 'package:mahjong_score/view/main/result/score/common/result_score_common.dart';
+import 'package:mahjong_score/view/main/result/score/result_score.dart';
 
 class ResultScoreYakuman extends ConsumerWidget {
   const ResultScoreYakuman({required this.cntYakuman, super.key});
@@ -11,7 +11,7 @@ class ResultScoreYakuman extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     FinishId id = _getYakumanFinishId();
-    return ResultScoreCommon(id: id);
+    return ResultScore(id: id);
   }
 
   FinishId _getYakumanFinishId() {
