@@ -32,7 +32,7 @@ class YakusYakuman extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return YakusSelector(
       yakuIds: yakuIdsYakuman,
-      custonActionWhenSelected: () {
+      custonActionWhenSelected: (YakuId id) {
         ref.read(doraCntProvider.notifier).state = initialDora;
         ref.read(mentsu1Provider.notifier).state = initialMentsu1;
         ref.read(mentsu2Provider.notifier).state = initialMentsu2;

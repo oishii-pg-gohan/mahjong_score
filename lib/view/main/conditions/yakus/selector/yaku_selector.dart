@@ -14,7 +14,7 @@ class YakuSelector extends ConsumerWidget {
 
   final YakuId id;
   final String name;
-  final Function? customAction;
+  final Function(YakuId)? customAction;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -30,7 +30,7 @@ class YakuSelector extends ConsumerWidget {
           ref.read(selectedYakusProvider.notifier).add(id);
           ref.read(enabledShareYakusProvider.notifier).extractId(id);
           if (customAction != null) {
-            customAction!();
+            customAction!(id);
           }
         } else {
           ref.read(selectedYakusProvider.notifier).delete(id);
