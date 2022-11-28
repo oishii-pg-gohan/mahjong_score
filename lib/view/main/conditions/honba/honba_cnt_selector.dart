@@ -10,20 +10,18 @@ class HonbaCntSelector extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return Center(
-      child: DropdownButton<int>(
-        isExpanded: false,
-        value: ref.watch(honbaCntProvider),
-        elevation: 10,
-        icon: null,
-        underline: Container(
-          height: 2,
-          color: kColorPrimary,
-        ),
-        onChanged: (int? selected) =>
-            ref.read(honbaCntProvider.notifier).state = selected!,
-        items: _buildItems(context, ref),
+    return DropdownButton<int>(
+      isExpanded: false,
+      value: ref.watch(honbaCntProvider),
+      elevation: 10,
+      icon: null,
+      underline: Container(
+        height: 2,
+        color: kColorPrimary,
       ),
+      onChanged: (int? selected) =>
+          ref.read(honbaCntProvider.notifier).state = selected!,
+      items: _buildItems(context, ref),
     );
   }
 

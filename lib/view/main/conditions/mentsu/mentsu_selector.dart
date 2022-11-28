@@ -17,20 +17,18 @@ class MentsuSelector extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return Center(
-      child: DropdownButton<FuMentsu>(
-        isExpanded: false,
-        value: fuMentsu != FuMentsu.none ? fuMentsu : null,
-        hint: Text('面子$no'),
-        elevation: 10,
-        icon: null,
-        underline: Container(
-          height: 2,
-          color: kColorPrimary,
-        ),
-        onChanged: (FuMentsu? selected) => onChanged(selected),
-        items: _buildItems(context),
+    return DropdownButton<FuMentsu>(
+      isExpanded: false,
+      value: fuMentsu != FuMentsu.none ? fuMentsu : null,
+      hint: Text('面子$no'),
+      elevation: 10,
+      icon: null,
+      underline: Container(
+        height: 2,
+        color: kColorPrimary,
       ),
+      onChanged: (FuMentsu? selected) => onChanged(selected),
+      items: _buildItems(context),
     );
   }
 

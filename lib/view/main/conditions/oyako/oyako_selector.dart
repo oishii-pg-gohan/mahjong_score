@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:mahjong_score/const.dart';
+import 'package:mahjong_score/view/common/switcher.dart';
 import 'package:mahjong_score/view/states/oyako/oyako_selected_provider.dart';
 
 class OyakoSelector extends ConsumerWidget {
@@ -8,9 +8,9 @@ class OyakoSelector extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return Switch(
-      value: ref.watch(oyakoSelectedProvider),
-      activeColor: kColorPrimary,
+    return Switcher(
+      disabled: false,
+      val: ref.watch(oyakoSelectedProvider),
       onChanged: (val) => ref.read(oyakoSelectedProvider.notifier).state = val,
     );
   }

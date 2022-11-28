@@ -116,3 +116,11 @@ bool containsYakuman(List<YakuId> ids) {
       ids.contains(YakuId.tenho) ||
       ids.contains(YakuId.chiho);
 }
+
+bool containsMenzen(List<YakuId> ids) {
+  return ids.contains(YakuId.tsumo) ||
+      ids.contains(YakuId.reach) ||
+      ids.contains(YakuId.wreach) ||
+      ids.contains(YakuId.pinfu) ||
+      ids.contains(YakuId.chitoitsu);
+}

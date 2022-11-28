@@ -11,7 +11,7 @@ class YakusSelector extends ConsumerWidget {
   });
 
   final List<YakuId> yakuIds;
-  final Function? custonActionWhenSelected;
+  final Function(YakuId)? custonActionWhenSelected;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
