@@ -39,3 +39,7 @@ Flutter Webを利用してブラウザから誰でも利用できるようにし
     - 待ち
     - ツモ
 
+- PWA
+  - Firebaseのhostingを利用しているためPWAの機能は自動で付与されている？
+    - 設定した記憶がないため、要調査
+    - 本件は[issue](https://github.com/oishii-pg-gohan/mahjong_score/issues/17)で対応予定
