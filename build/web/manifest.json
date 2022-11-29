@@ -1,11 +1,11 @@
 {
-    "name": "mahjong_score",
-    "short_name": "mahjong_score",
+    "name": "まーじゃん てんすうけいさん",
+    "short_name": "てんすうけいさん",
     "start_url": ".",
     "display": "standalone",
-    "background_color": "#0175C2",
-    "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "background_color": "#43A047",
+    "theme_color": "#43A047",
+    "description": "麻雀 点数計算アプリ",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [
