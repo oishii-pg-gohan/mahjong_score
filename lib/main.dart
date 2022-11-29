@@ -28,6 +28,7 @@ class MahjongScore extends StatelessWidget {
       SystemUiOverlayStyle(statusBarColor: kColorPrimary),
     );
     return MaterialApp(
+      title: 'まーじゃん てんすうけいさん',
       initialRoute: AppScreen.id,
       routes: {
         AppScreen.id: (context) => const AppScreen(),
