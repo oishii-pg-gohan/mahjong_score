@@ -23,8 +23,8 @@ int getFu(
 }
 
 int _getFu(
-  bool tsumo,
   bool menzen,
+  bool tsumo,
   FuMentsu mentsu1,
   FuMentsu mentsu2,
   FuMentsu mentsu3,

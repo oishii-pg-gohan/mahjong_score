@@ -13,15 +13,7 @@ class ResultFuDetailItem extends ConsumerWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text(
-          title,
-          style: const TextStyle(fontSize: 20),
-        ),
-        const Text(
-          '：',
-          style: TextStyle(fontSize: 20),
-        ),
-        Text(
-          '$fu',
+          '$title：$fu',
           style: const TextStyle(fontSize: 20),
         ),
       ],
