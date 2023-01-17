@@ -5,7 +5,7 @@ class Tsumo extends Yaku1Han {
   Tsumo()
       : super(
           id: YakuId.tsumo,
-          name: '面前自摸',
+          name: '門前自摸',
           enabledShareYakus: [
             // 1翻
             YakuId.reach, // 立直
