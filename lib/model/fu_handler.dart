@@ -19,6 +19,7 @@ int getFu(
   } else {
     return _getFu(
       hasPinfu,
+      hasChitoitsu,
       menzen,
       tsumo,
       mentsu1,
@@ -33,6 +34,7 @@ int getFu(
 
 int _getFu(
   bool hasPinfu,
+  bool hasChitoitsu,
   bool menzen,
   bool tsumo,
   FuMentsu mentsu1,
@@ -43,7 +45,7 @@ int _getFu(
   FuMachi machi,
 ) {
   // 基本符
-  int fuKihon = getFuKihon(menzen, tsumo);
+  int fuKihon = getFuKihon(hasChitoitsu, menzen, tsumo);
 
   // 面子符
   int fuMentsu = getFuMentsu(mentsu1, mentsu2, mentsu3, mentsu4);
@@ -60,9 +62,11 @@ int _getFu(
   return calcFu(sum);
 }
 
-int getFuKihon(bool menzen, bool tsumo) {
+int getFuKihon(bool hasChitoitsu, bool menzen, bool tsumo) {
   int fu = 20;
-  if (menzen && !tsumo) {
+  if (hasChitoitsu) {
+    fu = 25;
+  } else if (menzen && !tsumo) {
     fu = 30;
   }
   return fu;

@@ -14,7 +14,9 @@ class ResultFuTsumo extends ConsumerWidget {
     List<YakuId> selectedYakuIds = ref.watch(selectedYakusProvider);
 
     int fu = 0;
-    if (tsumo && !selectedYakuIds.contains(YakuId.pinfu)) {
+    if (tsumo &&
+        !selectedYakuIds.contains(YakuId.pinfu) &&
+        !selectedYakuIds.contains(YakuId.chitoitsu)) {
       fu = 2;
     }
 
