@@ -12,7 +12,7 @@ int getFu(
   FuAtama atama,
   FuMachi machi,
 ) {
-  if (hasPinfu) {
+  if (hasPinfu && tsumo) {
     return 20;
   } else if (hasChitoitsu) {
     return 25;
