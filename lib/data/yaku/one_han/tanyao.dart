@@ -5,7 +5,7 @@ class Tanyao extends Yaku1Han {
   Tanyao()
       : super(
           id: YakuId.tanyao,
-          name: '断幺九',
+          name: '断么九',
           enabledNaki: true,
           enabledShareYakus: [
             // 1翻
