@@ -18,11 +18,21 @@ int getFu(
     return 25;
   } else {
     return _getFu(
-        menzen, tsumo, mentsu1, mentsu2, mentsu3, mentsu4, atama, machi);
+      hasPinfu,
+      menzen,
+      tsumo,
+      mentsu1,
+      mentsu2,
+      mentsu3,
+      mentsu4,
+      atama,
+      machi,
+    );
   }
 }
 
 int _getFu(
+  bool hasPinfu,
   bool menzen,
   bool tsumo,
   FuMentsu mentsu1,
@@ -44,7 +54,7 @@ int _getFu(
   // 待ち符
   int fuMachi = mapFuMachi[machi]!;
 
-  int fuTsumo = tsumo ? 2 : 0;
+  int fuTsumo = tsumo && !hasPinfu ? 2 : 0; // ツモの時は一律2符つくが、平和の時だけは2符つかない決まり
 
   int sum = fuKihon + fuMentsu + fuAtama + fuMachi + fuTsumo;
   return calcFu(sum);
