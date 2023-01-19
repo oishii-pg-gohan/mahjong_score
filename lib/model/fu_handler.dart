@@ -16,6 +16,9 @@ int getFu(
     return 20;
   } else if (hasChitoitsu) {
     return 25;
+  } else if (isKuitan(
+      menzen, tsumo, mentsu1, mentsu2, mentsu3, mentsu4, atama, machi)) {
+    return 30;
   } else {
     return _getFu(
       hasPinfu,
@@ -30,6 +33,25 @@ int getFu(
       machi,
     );
   }
+}
+
+bool isKuitan(
+  bool menzen,
+  bool tsumo,
+  FuMentsu mentsu1,
+  FuMentsu mentsu2,
+  FuMentsu mentsu3,
+  FuMentsu mentsu4,
+  FuAtama atama,
+  FuMachi machi,
+) {
+  bool mentsu0Fu = mentsu1 == FuMentsu.shuntsu &&
+      mentsu2 == FuMentsu.shuntsu &&
+      mentsu3 == FuMentsu.shuntsu &&
+      mentsu4 == FuMentsu.shuntsu;
+  bool atamaSuhai = atama == FuAtama.suhai;
+  bool machiRyanmen = machi == FuMachi.ryanmen;
+  return !menzen && !tsumo && mentsu0Fu && atamaSuhai && machiRyanmen;
 }
 
 int _getFu(
