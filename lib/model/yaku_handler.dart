@@ -1,9 +1,10 @@
 import 'package:mahjong_score/data/yaku/yaku.dart';
 
-List<YakuId> getEnabledSharedYakus(List<YakuId> yakuIds, YakuId target) {
+List<YakuId> getEnabledSharedYakus(
+    List<YakuId> currentEnabledShareYakuIds, YakuId target) {
   return mapYaku[target]!
       .enabledShareYakus
-      .where((e) => yakuIds.contains(e))
+      .where((e) => currentEnabledShareYakuIds.contains(e))
       .toList();
 }
 

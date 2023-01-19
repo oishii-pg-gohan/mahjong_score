@@ -20,7 +20,8 @@ class YakuListState extends StateNotifier<List<YakuId>> {
     }
   }
 
-  delete(YakuId id) {
+  List<YakuId> delete(YakuId id) {
     state = [...state].where((e) => e != id).toList();
+    return state;
   }
 }

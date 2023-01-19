@@ -9,28 +9,25 @@ final enabledShareYakusProvider =
 class YakuListState extends StateNotifier<List<YakuId>> {
   YakuListState(List<YakuId>? initial) : super(initial ?? _allYakuIds);
 
+  /// 共有できる役一覧をリセットします。
+  /// ※すべて共有可の状態にする。
+  ///
   reset() {
     state = _allYakuIds;
   }
 
-  extractId(YakuId id) {
-    state = getEnabledSharedYakus(state, id);
+  /// 現在共有可能な役と指定された役で共有できる役一覧を抽出します。
+  ///
+  extract(YakuId id) {
+    state = getEnabledSharedYakus([...state], id);
   }
 
-  reExtractId(List<YakuId> selectedYakuIds) {
+  /// 指定された役一覧で共有できる役一覧を抽出します。
+  ///
+  extractFromIds(List<YakuId> selectedYakuIds) {
     state = selectedYakuIds.isEmpty
         ? _allYakuIds
         : extractEnabledSharedYakus(selectedYakuIds);
-  }
-
-  add(YakuId id) {
-    state = [...state].where((tagId) => tagId == id).isEmpty
-        ? [...state, id]
-        : [...state];
-  }
-
-  delete(YakuId id) {
-    state = [...state].where((tagId) => tagId != id).toList();
   }
 }
 

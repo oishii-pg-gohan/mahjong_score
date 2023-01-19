@@ -40,19 +40,19 @@ class YakusOne extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return YakusSelector(
       yakuIds: yakuIdsOne,
-      custonActionWhenSelected: (YakuId id) {
+      custonActionWhenSelected: (YakuId id, bool checked) {
         switch (id) {
           case YakuId.tsumo:
-            _actionTsumo(ref);
+            _actionTsumo(ref, checked);
             break;
           case YakuId.reach:
-            _actionReach(ref);
+            _actionReach(ref, checked);
             break;
           case YakuId.pinfu:
-            _actionPinfu(ref);
+            _actionPinfu(ref, checked);
             break;
           case YakuId.ipeiko:
-            _actionIpeiko(ref);
+            _actionIpeiko(ref, checked);
             break;
           default:
             break;
@@ -61,27 +61,39 @@ class YakusOne extends ConsumerWidget {
     );
   }
 
-  _actionTsumo(WidgetRef ref) {
-    ref.read(menzenSelectedProvider.notifier).state = true;
-    ref.read(tsumoSelectedProvider.notifier).state = true;
+  _actionTsumo(WidgetRef ref, bool checked) {
+    if (checked) {
+      ref.read(menzenSelectedProvider.notifier).state = true;
+      ref.read(tsumoSelectedProvider.notifier).state = true;
+    } else {
+      if (ref.watch(menzenSelectedProvider)) {
+        ref.read(tsumoSelectedProvider.notifier).state = false;
+      }
+    }
   }
 
-  _actionReach(WidgetRef ref) {
-    ref.read(menzenSelectedProvider.notifier).state = true;
+  _actionReach(WidgetRef ref, bool checked) {
+    if (checked) {
+      ref.read(menzenSelectedProvider.notifier).state = true;
+    }
   }
 
-  _actionPinfu(WidgetRef ref) {
-    ref.read(menzenSelectedProvider.notifier).state = true;
-    ref.read(mentsu1Provider.notifier).state = FuMentsu.shuntsu;
-    ref.read(mentsu2Provider.notifier).state = FuMentsu.shuntsu;
-    ref.read(mentsu3Provider.notifier).state = FuMentsu.shuntsu;
-    ref.read(mentsu4Provider.notifier).state = FuMentsu.shuntsu;
-    ref.read(machiProvider.notifier).state = FuMachi.ryanmen;
+  _actionPinfu(WidgetRef ref, bool checked) {
+    if (checked) {
+      ref.read(menzenSelectedProvider.notifier).state = true;
+      ref.read(mentsu1Provider.notifier).state = FuMentsu.shuntsu;
+      ref.read(mentsu2Provider.notifier).state = FuMentsu.shuntsu;
+      ref.read(mentsu3Provider.notifier).state = FuMentsu.shuntsu;
+      ref.read(mentsu4Provider.notifier).state = FuMentsu.shuntsu;
+      ref.read(machiProvider.notifier).state = FuMachi.ryanmen;
+    }
   }
 
-  _actionIpeiko(WidgetRef ref) {
-    ref.read(menzenSelectedProvider.notifier).state = true;
-    ref.read(mentsu1Provider.notifier).state = FuMentsu.shuntsu;
-    ref.read(mentsu2Provider.notifier).state = FuMentsu.shuntsu;
+  _actionIpeiko(WidgetRef ref, bool checked) {
+    if (checked) {
+      ref.read(menzenSelectedProvider.notifier).state = true;
+      ref.read(mentsu1Provider.notifier).state = FuMentsu.shuntsu;
+      ref.read(mentsu2Provider.notifier).state = FuMentsu.shuntsu;
+    }
   }
 }

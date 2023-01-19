@@ -22,10 +22,10 @@ class YakusThree extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return YakusSelector(
       yakuIds: yakuIdsThree,
-      custonActionWhenSelected: (YakuId id) {
+      custonActionWhenSelected: (YakuId id, bool checked) {
         switch (id) {
           case YakuId.ryanpeiko:
-            _actionRyanpeiko(ref);
+            _actionRyanpeiko(ref, checked);
             break;
           default:
             break;
@@ -34,11 +34,13 @@ class YakusThree extends ConsumerWidget {
     );
   }
 
-  _actionRyanpeiko(WidgetRef ref) {
-    ref.read(menzenSelectedProvider.notifier).state = true;
-    ref.read(mentsu1Provider.notifier).state = FuMentsu.shuntsu;
-    ref.read(mentsu2Provider.notifier).state = FuMentsu.shuntsu;
-    ref.read(mentsu3Provider.notifier).state = FuMentsu.shuntsu;
-    ref.read(mentsu4Provider.notifier).state = FuMentsu.shuntsu;
+  _actionRyanpeiko(WidgetRef ref, bool checked) {
+    if (checked) {
+      ref.read(menzenSelectedProvider.notifier).state = true;
+      ref.read(mentsu1Provider.notifier).state = FuMentsu.shuntsu;
+      ref.read(mentsu2Provider.notifier).state = FuMentsu.shuntsu;
+      ref.read(mentsu3Provider.notifier).state = FuMentsu.shuntsu;
+      ref.read(mentsu4Provider.notifier).state = FuMentsu.shuntsu;
+    }
   }
 }

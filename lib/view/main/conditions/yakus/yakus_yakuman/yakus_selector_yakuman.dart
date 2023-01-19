@@ -32,14 +32,16 @@ class YakusYakuman extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return YakusSelector(
       yakuIds: yakuIdsYakuman,
-      custonActionWhenSelected: (YakuId id) {
-        ref.read(doraCntProvider.notifier).state = initialDora;
-        ref.read(mentsu1Provider.notifier).state = initialMentsu1;
-        ref.read(mentsu2Provider.notifier).state = initialMentsu2;
-        ref.read(mentsu3Provider.notifier).state = initialMentsu3;
-        ref.read(mentsu4Provider.notifier).state = initialMentsu4;
-        ref.read(atamaProvider.notifier).state = initialFuAtama;
-        ref.read(machiProvider.notifier).state = initialFuMachi;
+      custonActionWhenSelected: (YakuId id, bool checked) {
+        if (checked) {
+          ref.read(doraCntProvider.notifier).state = initialDora;
+          ref.read(mentsu1Provider.notifier).state = initialMentsu1;
+          ref.read(mentsu2Provider.notifier).state = initialMentsu2;
+          ref.read(mentsu3Provider.notifier).state = initialMentsu3;
+          ref.read(mentsu4Provider.notifier).state = initialMentsu4;
+          ref.read(atamaProvider.notifier).state = initialFuAtama;
+          ref.read(machiProvider.notifier).state = initialFuMachi;
+        }
       },
     );
   }
