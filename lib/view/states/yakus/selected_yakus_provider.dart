@@ -13,8 +13,11 @@ class YakuListState extends StateNotifier<List<YakuId>> {
   }
 
   add(YakuId id) {
-    state =
-        [...state].where((e) => e == id).isEmpty ? [...state, id] : [...state];
+    if (!state.contains(id)) {
+      state = [...state].where((e) => e == id).isEmpty
+          ? [...state, id]
+          : [...state];
+    }
   }
 
   delete(YakuId id) {
