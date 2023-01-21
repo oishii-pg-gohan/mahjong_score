@@ -5,7 +5,7 @@ class HaiTei extends Yaku1Han {
   HaiTei()
       : super(
           id: YakuId.haitei,
-          name: '海底',
+          name: '海底摸月',
           enabledNaki: true,
           enabledShareYakus: [
             // 1翻
