@@ -8,21 +8,26 @@ FinishId getFinishId(int han, FuId fu, bool hasPinfu, bool hasChitoitsu) {
   } else if (hasChitoitsu) {
     id = _getFinishIdWhenChitoitsu(han);
   } else {
+    FuId calcFu = fu;
+    if (fu == FuId.fu20) {
+      // 喰いタンの場合は30符として計算する。（平和ではないのに20符なのは喰いタン）
+      calcFu = FuId.fu30;
+    }
     switch (han) {
       case 0:
         id = FinishId.unknonw;
         break;
       case 1:
-        id = _getFinishIdWhenHan1(fu);
+        id = _getFinishIdWhenHan1(calcFu);
         break;
       case 2:
-        id = _getFinishIdWhenHan2(fu);
+        id = _getFinishIdWhenHan2(calcFu);
         break;
       case 3:
-        id = _getFinishIdWhenHan3(fu);
+        id = _getFinishIdWhenHan3(calcFu);
         break;
       case 4:
-        id = _getFinishIdWhenHan4(fu);
+        id = _getFinishIdWhenHan4(calcFu);
         break;
       default:
         id = _getFinishIdMoreManagan(han);

@@ -31,13 +31,13 @@ class YakusTwo extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return YakusSelector(
       yakuIds: yakuIdsTwo,
-      custonActionWhenSelected: (YakuId id) {
+      custonActionWhenSelected: (YakuId id, bool checked) {
         switch (id) {
           case YakuId.wreach:
-            _actionWReach(ref);
+            _actionWReach(ref, checked);
             break;
           case YakuId.chitoitsu:
-            _actionChitoitsu(ref);
+            _actionChitoitsu(ref, checked);
             break;
           default:
             break;
@@ -46,16 +46,20 @@ class YakusTwo extends ConsumerWidget {
     );
   }
 
-  _actionWReach(WidgetRef ref) {
-    ref.read(menzenSelectedProvider.notifier).state = true;
+  _actionWReach(WidgetRef ref, bool checked) {
+    if (checked) {
+      ref.read(menzenSelectedProvider.notifier).state = true;
+    }
   }
 
-  _actionChitoitsu(WidgetRef ref) {
-    ref.read(menzenSelectedProvider.notifier).state = true;
-    ref.read(mentsu1Provider.notifier).state = FuMentsu.none;
-    ref.read(mentsu2Provider.notifier).state = FuMentsu.none;
-    ref.read(mentsu3Provider.notifier).state = FuMentsu.none;
-    ref.read(mentsu4Provider.notifier).state = FuMentsu.none;
-    ref.read(machiProvider.notifier).state = FuMachi.tanki;
+  _actionChitoitsu(WidgetRef ref, bool checked) {
+    if (checked) {
+      ref.read(menzenSelectedProvider.notifier).state = true;
+      ref.read(mentsu1Provider.notifier).state = FuMentsu.none;
+      ref.read(mentsu2Provider.notifier).state = FuMentsu.none;
+      ref.read(mentsu3Provider.notifier).state = FuMentsu.none;
+      ref.read(mentsu4Provider.notifier).state = FuMentsu.none;
+      ref.read(machiProvider.notifier).state = FuMachi.tanki;
+    }
   }
 }

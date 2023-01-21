@@ -5,7 +5,7 @@ class Hotei extends Yaku1Han {
   Hotei()
       : super(
           id: YakuId.hotei,
-          name: '河底',
+          name: '河底撈魚',
           enabledNaki: true,
           enabledShareYakus: [
             // 1翻
