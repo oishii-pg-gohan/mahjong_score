@@ -16,7 +16,7 @@ int getFu(
     return 20;
   } else if (hasChitoitsu) {
     return 25;
-  } else if (isKuitan(
+  } else if (isKuiPinfu(
       menzen, tsumo, mentsu1, mentsu2, mentsu3, mentsu4, atama, machi)) {
     return 30;
   } else {
@@ -35,7 +35,7 @@ int getFu(
   }
 }
 
-bool isKuitan(
+bool isKuiPinfu(
   bool menzen,
   bool tsumo,
   FuMentsu mentsu1,
