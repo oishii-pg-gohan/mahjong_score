@@ -2,7 +2,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:mahjong_score/data/fu/fus.dart';
 import 'package:mahjong_score/data/yaku/yaku.dart';
 
-import '../../test_widget_util.dart';
+import '../../../test_widget_util.dart';
 
 void main() {
   group('2018/10/02 1試合目', () {

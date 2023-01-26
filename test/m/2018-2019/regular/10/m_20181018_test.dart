@@ -2,7 +2,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:mahjong_score/data/fu/fus.dart';
 import 'package:mahjong_score/data/yaku/yaku.dart';
 
-import '../../test_widget_util.dart';
+import '../../../test_widget_util.dart';
 
 // 東3局 1本場：流局
 // expect(find.text('断么九'), findsOneWidget);
