@@ -4,8 +4,9 @@ import 'package:mahjong_score/data/yaku/yaku.dart';
 
 import '../../../test_widget_util.dart';
 
-// 東3局 1本場：流局
-// expect(find.text('断么九'), findsOneWidget);
+/// 流局は以下
+// 1試合目
+// 2試合目
 
 void main() {
   group('2018/10/11 1試合目', () {
@@ -33,8 +34,8 @@ void main() {
       expect(find.text('立直'), findsOneWidget);
       expect(find.text('門前自摸'), findsOneWidget);
 
-      expect(find.text('4翻'),
-          findsNWidgets(1)); // 1翻,2翻,3翻,6翻,役満は役選択部分にもテキストがあるため、2widgetヒットする
+      expect(getTextValue('result-han'), '4翻');
+
       expect(find.text('30符'), findsOneWidget);
 
       expect(find.text('子：2000点'), findsOneWidget);

@@ -12,13 +12,23 @@ class SelectedYakus extends ConsumerWidget {
     return Wrap(
       spacing: 8,
       runSpacing: 8,
-      children: selectedYakuIds
-          .map((id) => mapYaku[id]!)
-          .map((yaku) => Text(
-                yaku.name,
-                style: const TextStyle(fontSize: 20),
-              ))
-          .toList(),
+      key: const ValueKey('selected-yakus'),
+      children: _buildYakus(selectedYakuIds),
     );
+  }
+
+  List<Widget> _buildYakus(List<YakuId> yakuIds) {
+    List<Widget> yakus = [];
+    yakuIds.asMap().forEach((idx, yakuId) {
+      Yaku yaku = mapYaku[yakuId]!;
+      yakus.add(
+        Text(
+          yaku.name,
+          style: const TextStyle(fontSize: 20),
+          key: ValueKey('selected-yaku-$idx'),
+        ),
+      );
+    });
+    return yakus;
   }
 }

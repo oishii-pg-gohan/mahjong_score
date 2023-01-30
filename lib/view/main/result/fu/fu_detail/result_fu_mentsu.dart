@@ -19,6 +19,10 @@ class ResultFuMentsu extends ConsumerWidget {
       ref.watch(mentsu4Provider),
     );
 
-    return ResultFuDetailItem(title: '面子', fu: fu);
+    return ResultFuDetailItem(
+      title: '面子',
+      fu: fu,
+      keyFu: 'fu-mentsu',
+    );
   }
 }

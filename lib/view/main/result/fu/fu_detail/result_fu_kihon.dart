@@ -20,6 +20,10 @@ class ResultFuKihon extends ConsumerWidget {
       ref.watch(tsumoSelectedProvider),
     );
 
-    return ResultFuDetailItem(title: '基本', fu: fu);
+    return ResultFuDetailItem(
+      title: '基本',
+      fu: fu,
+      keyFu: 'fu-kihon',
+    );
   }
 }

@@ -17,6 +17,7 @@ class ResultScoreTsumoOya extends ConsumerWidget {
       child: Text(
         '${score + honba * 100}点 all',
         style: const TextStyle(fontSize: 26),
+        key: const ValueKey('result-score-tsumo-oya'),
       ),
     );
   }

@@ -4,15 +4,28 @@ import 'package:mahjong_score/data/yaku/yaku.dart';
 
 import '../../../test_widget_util.dart';
 
+/// 流局は以下
+// 1試合目
+// 東3局 1本場
+// 東3局 3本場
+// 東4局 0本場
+// 2試合目
+// 東2局 0本場
+// 南2局 1本場
+// 南4局 1本場
+// 南4局 2本場
+
 void main() {
   group('2018/10/09 1試合目', () {
     testWidgets('東1局 0本場', (WidgetTester tester) async {
+      List<YakuId> yakus = [
+        YakuId.reach,
+        YakuId.tsumo,
+      ];
+
       await tester.pumpWidget(
         createTestProviderScope(
-          yakus: [
-            YakuId.reach,
-            YakuId.tsumo,
-          ],
+          yakus: yakus,
           dora: 2,
           honba: 0,
           menzen: true,
@@ -27,32 +40,34 @@ void main() {
         ),
       );
 
-      expect(find.text('立直'), findsOneWidget);
-      expect(find.text('門前自摸'), findsOneWidget);
-
-      expect(find.text('4翻'),
-          findsNWidgets(1)); // 1翻,2翻,3翻,6翻,役満は役選択部分にもテキストがあるため、2widgetヒットする
-      expect(find.text('30符'), findsOneWidget);
-
-      expect(find.text('子：2000点'), findsOneWidget);
-      expect(find.text('親：4000点'), findsOneWidget);
-
-      expect(find.text('基本：20'), findsOneWidget);
-      expect(find.text('面子：4'), findsOneWidget);
-      expect(find.text('アタマ：0'), findsOneWidget);
-      expect(find.text('待ち：0'), findsOneWidget);
-      expect(find.text('ツモ：2'), findsOneWidget);
+      testTsumoKo(
+        expectYakuNames: [
+          reach,
+          tsumo,
+        ],
+        han: 4,
+        fu: 30,
+        scoreKo: 2000,
+        scoreOya: 4000,
+        fuKihon: 20,
+        fuMentsu: 4,
+        fuAtama: 0,
+        fuMachi: 0,
+        fuTsumo: 2,
+      );
     });
 
     testWidgets('東2局 0本場', (WidgetTester tester) async {
+      List<YakuId> yakus = [
+        YakuId.reach,
+        YakuId.tsumo,
+        YakuId.pinfu,
+        YakuId.tanyao,
+      ];
+
       await tester.pumpWidget(
         createTestProviderScope(
-          yakus: [
-            YakuId.reach,
-            YakuId.tsumo,
-            YakuId.pinfu,
-            YakuId.tanyao,
-          ],
+          yakus: yakus,
           dora: 1,
           honba: 0,
           menzen: true,
@@ -67,31 +82,33 @@ void main() {
         ),
       );
 
-      expect(find.text('立直'), findsOneWidget);
-      expect(find.text('門前自摸'), findsOneWidget);
-      expect(find.text('平和'), findsOneWidget);
-      expect(find.text('断么九'), findsOneWidget);
-
-      expect(find.text('5翻'),
-          findsNWidgets(1)); // 1翻,2翻,3翻,6翻,役満は役選択部分にもテキストがあるため、2widgetヒットする
-      expect(find.text('20符'), findsOneWidget);
-
-      expect(find.text('子：2000点'), findsOneWidget);
-      expect(find.text('親：4000点'), findsOneWidget);
-
-      expect(find.text('基本：20'), findsOneWidget);
-      expect(find.text('面子：0'), findsOneWidget);
-      expect(find.text('アタマ：0'), findsOneWidget);
-      expect(find.text('待ち：0'), findsOneWidget);
-      expect(find.text('ツモ：0'), findsOneWidget);
+      testTsumoKo(
+        expectYakuNames: [
+          reach,
+          tsumo,
+          pinfu,
+          tanyao,
+        ],
+        han: 5,
+        fu: 20,
+        scoreKo: 2000,
+        scoreOya: 4000,
+        fuKihon: 20,
+        fuMentsu: 0,
+        fuAtama: 0,
+        fuMachi: 0,
+        fuTsumo: 0,
+      );
     });
 
     testWidgets('東3局 0本場', (WidgetTester tester) async {
+      List<YakuId> yakus = [
+        YakuId.tsumo,
+      ];
+
       await tester.pumpWidget(
         createTestProviderScope(
-          yakus: [
-            YakuId.tsumo,
-          ],
+          yakus: yakus,
           dora: 1,
           honba: 0,
           menzen: true,
@@ -106,30 +123,30 @@ void main() {
         ),
       );
 
-      expect(find.text('門前自摸'), findsOneWidget);
-
-      expect(find.text('2翻'),
-          findsNWidgets(2)); // 1翻,2翻,3翻,6翻,役満は役選択部分にもテキストがあるため、2widgetヒットする
-      expect(find.text('30符'), findsOneWidget);
-
-      expect(find.text('1000点 all'), findsOneWidget);
-
-      expect(find.text('基本：20'), findsOneWidget);
-      expect(find.text('面子：0'), findsOneWidget);
-      expect(find.text('アタマ：0'), findsOneWidget);
-      expect(find.text('待ち：2'), findsOneWidget);
-      expect(find.text('ツモ：2'), findsOneWidget);
+      testTsumoOya(
+        expectYakuNames: [
+          tsumo,
+        ],
+        han: 2,
+        fu: 30,
+        score: 1000,
+        fuKihon: 20,
+        fuMentsu: 0,
+        fuAtama: 0,
+        fuMachi: 2,
+        fuTsumo: 2,
+      );
     });
 
-    // 東3局 1本場：流局
-
     testWidgets('東3局 2本場', (WidgetTester tester) async {
+      List<YakuId> yakus = [
+        YakuId.tonBa,
+        YakuId.tonKaze,
+      ];
+
       await tester.pumpWidget(
         createTestProviderScope(
-          yakus: [
-            YakuId.tonBa,
-            YakuId.tonKaze,
-          ],
+          yakus: yakus,
           dora: 1,
           honba: 2,
           menzen: false,
@@ -144,33 +161,33 @@ void main() {
         ),
       );
 
-      expect(find.text('東（場）'), findsOneWidget);
-      expect(find.text('東（風）'), findsOneWidget);
-
-      expect(find.text('3翻'),
-          findsNWidgets(2)); // 1翻,2翻,3翻,6翻,役満は役選択部分にもテキストがあるため、2widgetヒットする
-      expect(find.text('30符'), findsOneWidget);
-
-      expect(find.text('6400点'), findsOneWidget);
-
-      expect(find.text('基本：20'), findsOneWidget);
-      expect(find.text('面子：8'), findsOneWidget);
-      expect(find.text('アタマ：0'), findsOneWidget);
-      expect(find.text('待ち：0'), findsOneWidget);
-      expect(find.text('ツモ：0'), findsOneWidget);
+      testRon(
+        expectYakuNames: [
+          tonBa,
+          tonKaze,
+        ],
+        han: 3,
+        fu: 30,
+        score: 6400,
+        fuKihon: 20,
+        fuMentsu: 8,
+        fuAtama: 0,
+        fuMachi: 0,
+        fuTsumo: 0,
+      );
     });
 
-    // 東3局 3本場：流局
-
     testWidgets('東3局 4本場', (WidgetTester tester) async {
+      List<YakuId> yakus = [
+        YakuId.reach,
+        YakuId.tsumo,
+        YakuId.ippatsu,
+        YakuId.haku,
+      ];
+
       await tester.pumpWidget(
         createTestProviderScope(
-          yakus: [
-            YakuId.reach,
-            YakuId.tsumo,
-            YakuId.ippatsu,
-            YakuId.haku,
-          ],
+          yakus: yakus,
           dora: 1,
           honba: 4,
           menzen: true,
@@ -185,34 +202,34 @@ void main() {
         ),
       );
 
-      expect(find.text('立直'), findsOneWidget);
-      expect(find.text('門前自摸'), findsOneWidget);
-      expect(find.text('一発'), findsOneWidget);
-      expect(find.text('白'), findsOneWidget);
-
-      expect(find.text('5翻'),
-          findsNWidgets(1)); // 1翻,2翻,3翻,6翻,役満は役選択部分にもテキストがあるため、2widgetヒットする
-      expect(find.text('30符'), findsOneWidget);
-
-      expect(find.text('子：2400点'), findsOneWidget);
-      expect(find.text('親：4400点'), findsOneWidget);
-
-      expect(find.text('基本：20'), findsOneWidget);
-      expect(find.text('面子：8'), findsOneWidget);
-      expect(find.text('アタマ：0'), findsOneWidget);
-      expect(find.text('待ち：0'), findsOneWidget);
-      expect(find.text('ツモ：2'), findsOneWidget);
+      testTsumoKo(
+        expectYakuNames: [
+          reach,
+          tsumo,
+          ippatsu,
+          haku,
+        ],
+        han: 5,
+        fu: 30,
+        scoreKo: 2400,
+        scoreOya: 4400,
+        fuKihon: 20,
+        fuMentsu: 8,
+        fuAtama: 0,
+        fuMachi: 0,
+        fuTsumo: 2,
+      );
     });
 
-    // 東4局 0本場：流局
-
     testWidgets('南1局 1本場', (WidgetTester tester) async {
+      List<YakuId> yakus = [
+        YakuId.reach,
+        YakuId.tsumo,
+      ];
+
       await tester.pumpWidget(
         createTestProviderScope(
-          yakus: [
-            YakuId.reach,
-            YakuId.tsumo,
-          ],
+          yakus: yakus,
           dora: 2,
           honba: 1,
           menzen: true,
@@ -227,30 +244,32 @@ void main() {
         ),
       );
 
-      expect(find.text('立直'), findsOneWidget);
-      expect(find.text('門前自摸'), findsOneWidget);
-
-      expect(find.text('4翻'),
-          findsNWidgets(1)); // 1翻,2翻,3翻,6翻,役満は役選択部分にもテキストがあるため、2widgetヒットする
-      expect(find.text('30符'), findsOneWidget);
-
-      expect(find.text('子：2100点'), findsOneWidget);
-      expect(find.text('親：4100点'), findsOneWidget);
-
-      expect(find.text('基本：20'), findsOneWidget);
-      expect(find.text('面子：8'), findsOneWidget);
-      expect(find.text('アタマ：0'), findsOneWidget);
-      expect(find.text('待ち：0'), findsOneWidget);
-      expect(find.text('ツモ：2'), findsOneWidget);
+      testTsumoKo(
+        expectYakuNames: [
+          reach,
+          tsumo,
+        ],
+        han: 4,
+        fu: 30,
+        scoreKo: 2100,
+        scoreOya: 4100,
+        fuKihon: 20,
+        fuMentsu: 8,
+        fuAtama: 0,
+        fuMachi: 0,
+        fuTsumo: 2,
+      );
     });
 
     testWidgets('南2局 0本場', (WidgetTester tester) async {
+      List<YakuId> yakus = [
+        YakuId.chun,
+        YakuId.sanshokudojun,
+      ];
+
       await tester.pumpWidget(
         createTestProviderScope(
-          yakus: [
-            YakuId.chun,
-            YakuId.sanshokudojun,
-          ],
+          yakus: yakus,
           dora: 0,
           honba: 0,
           menzen: false,
@@ -265,28 +284,30 @@ void main() {
         ),
       );
 
-      expect(find.text('中'), findsOneWidget);
-      expect(find.text('三色同順'), findsOneWidget);
-
-      expect(find.text('2翻'),
-          findsNWidgets(2)); // 1翻,2翻,3翻,6翻,役満は役選択部分にもテキストがあるため、2widgetヒットする
-      expect(find.text('30符'), findsOneWidget);
-
-      expect(find.text('2000点'), findsOneWidget);
-
-      expect(find.text('基本：20'), findsOneWidget);
-      expect(find.text('面子：4'), findsOneWidget);
-      expect(find.text('アタマ：0'), findsOneWidget);
-      expect(find.text('待ち：2'), findsOneWidget);
-      expect(find.text('ツモ：0'), findsOneWidget);
+      testRon(
+        expectYakuNames: [
+          chun,
+          sanshokudojun,
+        ],
+        han: 2,
+        fu: 30,
+        score: 2000,
+        fuKihon: 20,
+        fuMentsu: 4,
+        fuAtama: 0,
+        fuMachi: 2,
+        fuTsumo: 0,
+      );
     });
 
     testWidgets('南3局 0本場', (WidgetTester tester) async {
+      List<YakuId> yakus = [
+        YakuId.tsumo,
+      ];
+
       await tester.pumpWidget(
         createTestProviderScope(
-          yakus: [
-            YakuId.tsumo,
-          ],
+          yakus: yakus,
           dora: 0,
           honba: 0,
           menzen: true,
@@ -301,27 +322,29 @@ void main() {
         ),
       );
 
-      expect(find.text('門前自摸'), findsOneWidget);
-
-      expect(find.text('1翻'),
-          findsNWidgets(2)); // 1翻,2翻,3翻,6翻,役満は役選択部分にもテキストがあるため、2widgetヒットする
-      expect(find.text('40符'), findsOneWidget);
-
-      expect(find.text('700点 all'), findsOneWidget);
-
-      expect(find.text('基本：20'), findsOneWidget);
-      expect(find.text('面子：8'), findsOneWidget);
-      expect(find.text('アタマ：0'), findsOneWidget);
-      expect(find.text('待ち：2'), findsOneWidget);
-      expect(find.text('ツモ：2'), findsOneWidget);
+      testTsumoOya(
+        expectYakuNames: [
+          tsumo,
+        ],
+        han: 1,
+        fu: 40,
+        score: 700,
+        fuKihon: 20,
+        fuMentsu: 8,
+        fuAtama: 0,
+        fuMachi: 2,
+        fuTsumo: 2,
+      );
     });
 
     testWidgets('南3局 1本場', (WidgetTester tester) async {
+      List<YakuId> yakus = [
+        YakuId.tanyao,
+      ];
+
       await tester.pumpWidget(
         createTestProviderScope(
-          yakus: [
-            YakuId.tanyao,
-          ],
+          yakus: yakus,
           dora: 1,
           honba: 1,
           menzen: false,
@@ -336,28 +359,30 @@ void main() {
         ),
       );
 
-      expect(find.text('断么九'), findsOneWidget);
-
-      expect(find.text('2翻'),
-          findsNWidgets(2)); // 1翻,2翻,3翻,6翻,役満は役選択部分にもテキストがあるため、2widgetヒットする
-      expect(find.text('30符'), findsOneWidget);
-
-      expect(find.text('2300点'), findsOneWidget);
-
-      expect(find.text('基本：20'), findsOneWidget);
-      expect(find.text('面子：0'), findsOneWidget);
-      expect(find.text('アタマ：0'), findsOneWidget);
-      expect(find.text('待ち：2'), findsOneWidget);
-      expect(find.text('ツモ：0'), findsOneWidget);
+      testRon(
+        expectYakuNames: [
+          tanyao,
+        ],
+        han: 2,
+        fu: 30,
+        score: 2300,
+        fuKihon: 20,
+        fuMentsu: 0,
+        fuAtama: 0,
+        fuMachi: 2,
+        fuTsumo: 0,
+      );
     });
 
     testWidgets('南4局 0本場', (WidgetTester tester) async {
+      List<YakuId> yakus = [
+        YakuId.tanyao,
+        YakuId.sanshokudojun,
+      ];
+
       await tester.pumpWidget(
         createTestProviderScope(
-          yakus: [
-            YakuId.tanyao,
-            YakuId.sanshokudojun,
-          ],
+          yakus: yakus,
           dora: 1,
           honba: 0,
           menzen: false,
@@ -372,33 +397,35 @@ void main() {
         ),
       );
 
-      expect(find.text('断么九'), findsOneWidget);
-      expect(find.text('三色同順'), findsOneWidget);
-
-      expect(find.text('3翻'),
-          findsNWidgets(2)); // 1翻,2翻,3翻,6翻,役満は役選択部分にもテキストがあるため、2widgetヒットする
-      expect(find.text('30符'), findsOneWidget);
-
-      expect(find.text('3900点'), findsOneWidget);
-
-      expect(find.text('基本：20'), findsOneWidget);
-      expect(find.text('面子：0'), findsOneWidget);
-      expect(find.text('アタマ：0'), findsOneWidget);
-      expect(find.text('待ち：0'), findsOneWidget);
-      expect(find.text('ツモ：0'), findsOneWidget);
+      testRon(
+        expectYakuNames: [
+          tanyao,
+          sanshokudojun,
+        ],
+        han: 3,
+        fu: 30,
+        score: 3900,
+        fuKihon: 20,
+        fuMentsu: 0,
+        fuAtama: 0,
+        fuMachi: 0,
+        fuTsumo: 0,
+      );
     });
   });
 
   group('2018/10/09 2試合目', () {
     testWidgets('東1局 0本場', (WidgetTester tester) async {
+      List<YakuId> yakus = [
+        YakuId.reach,
+        YakuId.tsumo,
+        YakuId.pinfu,
+        YakuId.ipeiko,
+      ];
+
       await tester.pumpWidget(
         createTestProviderScope(
-          yakus: [
-            YakuId.reach,
-            YakuId.tsumo,
-            YakuId.pinfu,
-            YakuId.ipeiko,
-          ],
+          yakus: yakus,
           dora: 0,
           honba: 0,
           menzen: true,
@@ -413,30 +440,32 @@ void main() {
         ),
       );
 
-      expect(find.text('立直'), findsOneWidget);
-      expect(find.text('門前自摸'), findsOneWidget);
-      expect(find.text('平和'), findsOneWidget);
-      expect(find.text('一盃口'), findsOneWidget);
-
-      expect(find.text('4翻'),
-          findsNWidgets(1)); // 1翻,2翻,3翻,6翻,役満は役選択部分にもテキストがあるため、2widgetヒットする
-      expect(find.text('20符'), findsOneWidget);
-
-      expect(find.text('2600点 all'), findsOneWidget);
-
-      expect(find.text('基本：20'), findsOneWidget);
-      expect(find.text('面子：0'), findsOneWidget);
-      expect(find.text('アタマ：0'), findsOneWidget);
-      expect(find.text('待ち：0'), findsOneWidget);
-      expect(find.text('ツモ：0'), findsOneWidget);
+      testTsumoOya(
+        expectYakuNames: [
+          reach,
+          tsumo,
+          pinfu,
+          ipeiko,
+        ],
+        han: 4,
+        fu: 20,
+        score: 2600,
+        fuKihon: 20,
+        fuMentsu: 0,
+        fuAtama: 0,
+        fuMachi: 0,
+        fuTsumo: 0,
+      );
     });
 
     testWidgets('東1局 1本場', (WidgetTester tester) async {
+      List<YakuId> yakus = [
+        YakuId.chitoitsu,
+      ];
+
       await tester.pumpWidget(
         createTestProviderScope(
-          yakus: [
-            YakuId.chitoitsu,
-          ],
+          yakus: yakus,
           dora: 1,
           honba: 1,
           menzen: true,
@@ -451,29 +480,29 @@ void main() {
         ),
       );
 
-      expect(find.text('七対子'), findsOneWidget);
-
-      expect(find.text('3翻'),
-          findsNWidgets(2)); // 1翻,2翻,3翻,6翻,役満は役選択部分にもテキストがあるため、2widgetヒットする
-      expect(find.text('25符'), findsOneWidget);
-
-      expect(find.text('3500点'), findsOneWidget);
-
-      expect(find.text('基本：25'), findsOneWidget);
-      expect(find.text('面子：0'), findsOneWidget);
-      expect(find.text('アタマ：0'), findsOneWidget);
-      expect(find.text('待ち：0'), findsOneWidget);
-      expect(find.text('ツモ：0'), findsOneWidget);
+      testRon(
+        expectYakuNames: [
+          chitoitsu,
+        ],
+        han: 3,
+        fu: 25,
+        score: 3500,
+        fuKihon: 25,
+        fuMentsu: 0,
+        fuAtama: 0,
+        fuMachi: 0,
+        fuTsumo: 0,
+      );
     });
 
-    // 東2局 0本場：流局
-
     testWidgets('東3局 1本場', (WidgetTester tester) async {
+      List<YakuId> yakus = [
+        YakuId.tanyao,
+      ];
+
       await tester.pumpWidget(
         createTestProviderScope(
-          yakus: [
-            YakuId.tanyao,
-          ],
+          yakus: yakus,
           dora: 3,
           honba: 1,
           menzen: true,
@@ -488,27 +517,29 @@ void main() {
         ),
       );
 
-      expect(find.text('断么九'), findsOneWidget);
-
-      expect(find.text('4翻'),
-          findsNWidgets(1)); // 1翻,2翻,3翻,6翻,役満は役選択部分にもテキストがあるため、2widgetヒットする
-      expect(find.text('40符'), findsOneWidget);
-
-      expect(find.text('8300点'), findsOneWidget);
-
-      expect(find.text('基本：30'), findsOneWidget);
-      expect(find.text('面子：0'), findsOneWidget);
-      expect(find.text('アタマ：0'), findsOneWidget);
-      expect(find.text('待ち：2'), findsOneWidget);
-      expect(find.text('ツモ：0'), findsOneWidget);
+      testRon(
+        expectYakuNames: [
+          tanyao,
+        ],
+        han: 4,
+        fu: 40,
+        score: 8300,
+        fuKihon: 30,
+        fuMentsu: 0,
+        fuAtama: 0,
+        fuMachi: 2,
+        fuTsumo: 0,
+      );
     });
 
     testWidgets('東4局 0本場', (WidgetTester tester) async {
+      List<YakuId> yakus = [
+        YakuId.tonBa,
+      ];
+
       await tester.pumpWidget(
         createTestProviderScope(
-          yakus: [
-            YakuId.tonBa,
-          ],
+          yakus: yakus,
           dora: 3,
           honba: 0,
           menzen: false,
@@ -523,27 +554,29 @@ void main() {
         ),
       );
 
-      expect(find.text('東（場）'), findsOneWidget);
-
-      expect(find.text('4翻'),
-          findsNWidgets(1)); // 1翻,2翻,3翻,6翻,役満は役選択部分にもテキストがあるため、2widgetヒットする
-      expect(find.text('30符'), findsOneWidget);
-
-      expect(find.text('8000点'), findsOneWidget);
-
-      expect(find.text('基本：20'), findsOneWidget);
-      expect(find.text('面子：6'), findsOneWidget);
-      expect(find.text('アタマ：0'), findsOneWidget);
-      expect(find.text('待ち：0'), findsOneWidget);
-      expect(find.text('ツモ：0'), findsOneWidget);
+      testRon(
+        expectYakuNames: [
+          tonBa,
+        ],
+        han: 4,
+        fu: 30,
+        score: 8000,
+        fuKihon: 20,
+        fuMentsu: 6,
+        fuAtama: 0,
+        fuMachi: 0,
+        fuTsumo: 0,
+      );
     });
 
     testWidgets('南1局 0本場', (WidgetTester tester) async {
+      List<YakuId> yakus = [
+        YakuId.haku,
+      ];
+
       await tester.pumpWidget(
         createTestProviderScope(
-          yakus: [
-            YakuId.haku,
-          ],
+          yakus: yakus,
           dora: 1,
           honba: 0,
           menzen: false,
@@ -558,27 +591,29 @@ void main() {
         ),
       );
 
-      expect(find.text('白'), findsOneWidget);
-
-      expect(find.text('2翻'),
-          findsNWidgets(2)); // 1翻,2翻,3翻,6翻,役満は役選択部分にもテキストがあるため、2widgetヒットする
-      expect(find.text('30符'), findsOneWidget);
-
-      expect(find.text('2900点'), findsOneWidget);
-
-      expect(find.text('基本：20'), findsOneWidget);
-      expect(find.text('面子：4'), findsOneWidget);
-      expect(find.text('アタマ：0'), findsOneWidget);
-      expect(find.text('待ち：2'), findsOneWidget);
-      expect(find.text('ツモ：0'), findsOneWidget);
+      testRon(
+        expectYakuNames: [
+          haku,
+        ],
+        han: 2,
+        fu: 30,
+        score: 2900,
+        fuKihon: 20,
+        fuMentsu: 4,
+        fuAtama: 0,
+        fuMachi: 2,
+        fuTsumo: 0,
+      );
     });
 
     testWidgets('南1局 1本場', (WidgetTester tester) async {
+      List<YakuId> yakus = [
+        YakuId.tsumo,
+      ];
+
       await tester.pumpWidget(
         createTestProviderScope(
-          yakus: [
-            YakuId.tsumo,
-          ],
+          yakus: yakus,
           dora: 0,
           honba: 1,
           menzen: true,
@@ -593,28 +628,30 @@ void main() {
         ),
       );
 
-      expect(find.text('門前自摸'), findsOneWidget);
-
-      expect(find.text('1翻'),
-          findsNWidgets(2)); // 1翻,2翻,3翻,6翻,役満は役選択部分にもテキストがあるため、2widgetヒットする
-      expect(find.text('30符'), findsOneWidget);
-
-      expect(find.text('600点 all'), findsOneWidget);
-
-      expect(find.text('基本：20'), findsOneWidget);
-      expect(find.text('面子：0'), findsOneWidget);
-      expect(find.text('アタマ：2'), findsOneWidget);
-      expect(find.text('待ち：0'), findsOneWidget);
-      expect(find.text('ツモ：2'), findsOneWidget);
+      testTsumoOya(
+        expectYakuNames: [
+          tsumo,
+        ],
+        han: 1,
+        fu: 30,
+        score: 600,
+        fuKihon: 20,
+        fuMentsu: 0,
+        fuAtama: 2,
+        fuMachi: 0,
+        fuTsumo: 2,
+      );
     });
 
     testWidgets('南1局 2本場', (WidgetTester tester) async {
+      List<YakuId> yakus = [
+        YakuId.tonKaze,
+        YakuId.hatsu,
+      ];
+
       await tester.pumpWidget(
         createTestProviderScope(
-          yakus: [
-            YakuId.tonKaze,
-            YakuId.hatsu,
-          ],
+          yakus: yakus,
           dora: 1,
           honba: 2,
           menzen: false,
@@ -629,28 +666,30 @@ void main() {
         ),
       );
 
-      expect(find.text('東（風）'), findsOneWidget);
-      expect(find.text('發'), findsOneWidget);
-
-      expect(find.text('3翻'),
-          findsNWidgets(2)); // 1翻,2翻,3翻,6翻,役満は役選択部分にもテキストがあるため、2widgetヒットする
-      expect(find.text('30符'), findsOneWidget);
-
-      expect(find.text('6400点'), findsOneWidget);
-
-      expect(find.text('基本：20'), findsOneWidget);
-      expect(find.text('面子：8'), findsOneWidget);
-      expect(find.text('アタマ：0'), findsOneWidget);
-      expect(find.text('待ち：0'), findsOneWidget);
-      expect(find.text('ツモ：0'), findsOneWidget);
+      testRon(
+        expectYakuNames: [
+          tonKaze,
+          hatsu,
+        ],
+        han: 3,
+        fu: 30,
+        score: 6400,
+        fuKihon: 20,
+        fuMentsu: 8,
+        fuAtama: 0,
+        fuMachi: 0,
+        fuTsumo: 0,
+      );
     });
 
     testWidgets('南1局 3本場', (WidgetTester tester) async {
+      List<YakuId> yakus = [
+        YakuId.tanyao,
+      ];
+
       await tester.pumpWidget(
         createTestProviderScope(
-          yakus: [
-            YakuId.tanyao,
-          ],
+          yakus: yakus,
           dora: 1,
           honba: 3,
           menzen: false,
@@ -665,27 +704,29 @@ void main() {
         ),
       );
 
-      expect(find.text('断么九'), findsOneWidget);
-
-      expect(find.text('2翻'),
-          findsNWidgets(2)); // 1翻,2翻,3翻,6翻,役満は役選択部分にもテキストがあるため、2widgetヒットする
-      expect(find.text('30符'), findsOneWidget);
-
-      expect(find.text('3800点'), findsOneWidget);
-
-      expect(find.text('基本：20'), findsOneWidget);
-      expect(find.text('面子：2'), findsOneWidget);
-      expect(find.text('アタマ：0'), findsOneWidget);
-      expect(find.text('待ち：0'), findsOneWidget);
-      expect(find.text('ツモ：0'), findsOneWidget);
+      testRon(
+        expectYakuNames: [
+          tanyao,
+        ],
+        han: 2,
+        fu: 30,
+        score: 3800,
+        fuKihon: 20,
+        fuMentsu: 2,
+        fuAtama: 0,
+        fuMachi: 0,
+        fuTsumo: 0,
+      );
     });
 
     testWidgets('南1局 4本場', (WidgetTester tester) async {
+      List<YakuId> yakus = [
+        YakuId.chun,
+      ];
+
       await tester.pumpWidget(
         createTestProviderScope(
-          yakus: [
-            YakuId.chun,
-          ],
+          yakus: yakus,
           dora: 2,
           honba: 4,
           menzen: true,
@@ -700,28 +741,30 @@ void main() {
         ),
       );
 
-      expect(find.text('中'), findsOneWidget);
-
-      expect(find.text('3翻'),
-          findsNWidgets(2)); // 1翻,2翻,3翻,6翻,役満は役選択部分にもテキストがあるため、2widgetヒットする
-      expect(find.text('40符'), findsOneWidget);
-
-      expect(find.text('6400点'), findsOneWidget);
-
-      expect(find.text('基本：30'), findsOneWidget);
-      expect(find.text('面子：8'), findsOneWidget);
-      expect(find.text('アタマ：2'), findsOneWidget);
-      expect(find.text('待ち：0'), findsOneWidget);
-      expect(find.text('ツモ：0'), findsOneWidget);
+      testRon(
+        expectYakuNames: [
+          chun,
+        ],
+        han: 3,
+        fu: 40,
+        score: 6400,
+        fuKihon: 30,
+        fuMentsu: 8,
+        fuAtama: 2,
+        fuMachi: 0,
+        fuTsumo: 0,
+      );
     });
 
     testWidgets('南2局 0本場', (WidgetTester tester) async {
+      List<YakuId> yakus = [
+        YakuId.reach,
+        YakuId.tsumo,
+      ];
+
       await tester.pumpWidget(
         createTestProviderScope(
-          yakus: [
-            YakuId.reach,
-            YakuId.tsumo,
-          ],
+          yakus: yakus,
           dora: 2,
           honba: 0,
           menzen: true,
@@ -736,30 +779,30 @@ void main() {
         ),
       );
 
-      expect(find.text('立直'), findsOneWidget);
-      expect(find.text('門前自摸'), findsOneWidget);
-
-      expect(find.text('4翻'),
-          findsNWidgets(1)); // 1翻,2翻,3翻,6翻,役満は役選択部分にもテキストがあるため、2widgetヒットする
-      expect(find.text('40符'), findsOneWidget);
-
-      expect(find.text('4000点 all'), findsOneWidget);
-
-      expect(find.text('基本：20'), findsOneWidget);
-      expect(find.text('面子：8'), findsOneWidget);
-      expect(find.text('アタマ：0'), findsOneWidget);
-      expect(find.text('待ち：2'), findsOneWidget);
-      expect(find.text('ツモ：2'), findsOneWidget);
+      testTsumoOya(
+        expectYakuNames: [
+          reach,
+          tsumo,
+        ],
+        han: 4,
+        fu: 40,
+        score: 4000,
+        fuKihon: 20,
+        fuMentsu: 8,
+        fuAtama: 0,
+        fuMachi: 2,
+        fuTsumo: 2,
+      );
     });
 
-    // 南2局 1本場：流局
-
     testWidgets('南3局 2本場', (WidgetTester tester) async {
+      List<YakuId> yakus = [
+        YakuId.ikkitsukan,
+      ];
+
       await tester.pumpWidget(
         createTestProviderScope(
-          yakus: [
-            YakuId.ikkitsukan,
-          ],
+          yakus: yakus,
           dora: 3,
           honba: 2,
           menzen: false,
@@ -774,30 +817,32 @@ void main() {
         ),
       );
 
-      expect(find.text('一気通貫'), findsOneWidget);
-
-      expect(find.text('4翻'),
-          findsNWidgets(1)); // 1翻,2翻,3翻,6翻,役満は役選択部分にもテキストがあるため、2widgetヒットする
-      expect(find.text('30符'), findsOneWidget);
-
-      expect(find.text('8600点'), findsOneWidget);
-
-      expect(find.text('基本：20'), findsOneWidget);
-      expect(find.text('面子：2'), findsOneWidget);
-      expect(find.text('アタマ：0'), findsOneWidget);
-      expect(find.text('待ち：2'), findsOneWidget);
-      expect(find.text('ツモ：0'), findsOneWidget);
+      testRon(
+        expectYakuNames: [
+          ikkitsukan,
+        ],
+        han: 4,
+        fu: 30,
+        score: 8600,
+        fuKihon: 20,
+        fuMentsu: 2,
+        fuAtama: 0,
+        fuMachi: 2,
+        fuTsumo: 0,
+      );
     });
 
     testWidgets('南4局 0本場', (WidgetTester tester) async {
+      List<YakuId> yakus = [
+        YakuId.reach,
+        YakuId.tsumo,
+        YakuId.pinfu,
+        YakuId.ipeiko,
+      ];
+
       await tester.pumpWidget(
         createTestProviderScope(
-          yakus: [
-            YakuId.reach,
-            YakuId.tsumo,
-            YakuId.pinfu,
-            YakuId.ipeiko,
-          ],
+          yakus: yakus,
           dora: 1,
           honba: 0,
           menzen: true,
@@ -812,34 +857,33 @@ void main() {
         ),
       );
 
-      expect(find.text('立直'), findsOneWidget);
-      expect(find.text('門前自摸'), findsOneWidget);
-      expect(find.text('平和'), findsOneWidget);
-      expect(find.text('一盃口'), findsOneWidget);
-
-      expect(find.text('5翻'),
-          findsNWidgets(1)); // 1翻,2翻,3翻,6翻,役満は役選択部分にもテキストがあるため、2widgetヒットする
-      expect(find.text('20符'), findsOneWidget);
-
-      expect(find.text('4000点 all'), findsOneWidget);
-
-      expect(find.text('基本：20'), findsOneWidget);
-      expect(find.text('面子：0'), findsOneWidget);
-      expect(find.text('アタマ：0'), findsOneWidget);
-      expect(find.text('待ち：0'), findsOneWidget);
-      expect(find.text('ツモ：0'), findsOneWidget);
+      testTsumoOya(
+        expectYakuNames: [
+          reach,
+          tsumo,
+          pinfu,
+          ipeiko,
+        ],
+        han: 5,
+        fu: 20,
+        score: 4000,
+        fuKihon: 20,
+        fuMentsu: 0,
+        fuAtama: 0,
+        fuMachi: 0,
+        fuTsumo: 0,
+      );
     });
 
-    // 南4局 1本場：流局
-    // 南4局 2本場：流局
-
     testWidgets('南4局 3本場', (WidgetTester tester) async {
+      List<YakuId> yakus = [
+        YakuId.reach,
+        YakuId.pinfu,
+      ];
+
       await tester.pumpWidget(
         createTestProviderScope(
-          yakus: [
-            YakuId.reach,
-            YakuId.pinfu,
-          ],
+          yakus: yakus,
           dora: 1,
           honba: 3,
           menzen: true,
@@ -854,20 +898,20 @@ void main() {
         ),
       );
 
-      expect(find.text('立直'), findsOneWidget);
-      expect(find.text('平和'), findsOneWidget);
-
-      expect(find.text('3翻'),
-          findsNWidgets(2)); // 1翻,2翻,3翻,6翻,役満は役選択部分にもテキストがあるため、2widgetヒットする
-      expect(find.text('30符'), findsOneWidget);
-
-      expect(find.text('4800点'), findsOneWidget);
-
-      expect(find.text('基本：30'), findsOneWidget);
-      expect(find.text('面子：0'), findsOneWidget);
-      expect(find.text('アタマ：0'), findsOneWidget);
-      expect(find.text('待ち：0'), findsOneWidget);
-      expect(find.text('ツモ：0'), findsOneWidget);
+      testRon(
+        expectYakuNames: [
+          reach,
+          pinfu,
+        ],
+        han: 3,
+        fu: 30,
+        score: 4800,
+        fuKihon: 30,
+        fuMentsu: 0,
+        fuAtama: 0,
+        fuMachi: 0,
+        fuTsumo: 0,
+      );
     });
   });
 }

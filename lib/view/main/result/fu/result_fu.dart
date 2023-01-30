@@ -43,6 +43,7 @@ class ResultFu extends ConsumerWidget {
       child: Text(
         '$fu符',
         style: const TextStyle(fontSize: 26),
+        key: const ValueKey('result-fu'),
       ),
     );
   }

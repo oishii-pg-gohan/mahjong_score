@@ -4,8 +4,14 @@ import 'package:mahjong_score/data/yaku/yaku.dart';
 
 import '../../../test_widget_util.dart';
 
-// 東3局 1本場：流局
-// expect(find.text('断么九'), findsOneWidget);
+/// 流局は以下
+// 1試合目
+// 東4局 0本場
+// 南1局 1本場
+// 南1局 2本場
+// 2試合目
+// 南2局 0本場
+// 南4局 0本場
 
 void main() {
   group('2018/10/22 1試合目', () {
@@ -30,20 +36,20 @@ void main() {
         ),
       );
 
-      expect(find.text('立直'), findsOneWidget);
-      expect(find.text('平和'), findsOneWidget);
-
-      expect(find.text('2翻'),
-          findsNWidgets(2)); // 1翻,2翻,3翻,6翻,役満は役選択部分にもテキストがあるため、2widgetヒットする
-      expect(find.text('30符'), findsOneWidget);
-
-      expect(find.text('2000点'), findsOneWidget);
-
-      expect(find.text('基本：30'), findsOneWidget);
-      expect(find.text('面子：0'), findsOneWidget);
-      expect(find.text('アタマ：0'), findsOneWidget);
-      expect(find.text('待ち：0'), findsOneWidget);
-      expect(find.text('ツモ：0'), findsOneWidget);
+      testRon(
+        expectYakuNames: [
+          reach,
+          pinfu,
+        ],
+        han: 2,
+        fu: 30,
+        score: 2000,
+        fuKihon: 30,
+        fuMentsu: 0,
+        fuAtama: 0,
+        fuMachi: 0,
+        fuTsumo: 0,
+      );
     });
 
     testWidgets('東2局 0本場', (WidgetTester tester) async {
@@ -66,20 +72,20 @@ void main() {
         ),
       );
 
-      expect(find.text('發'), findsOneWidget);
-
-      expect(find.text('2翻'),
-          findsNWidgets(2)); // 1翻,2翻,3翻,6翻,役満は役選択部分にもテキストがあるため、2widgetヒットする
-      expect(find.text('40符'), findsOneWidget);
-
-      expect(find.text('子：700点'), findsOneWidget);
-      expect(find.text('親：1300点'), findsOneWidget);
-
-      expect(find.text('基本：20'), findsOneWidget);
-      expect(find.text('面子：12'), findsOneWidget);
-      expect(find.text('アタマ：0'), findsOneWidget);
-      expect(find.text('待ち：0'), findsOneWidget);
-      expect(find.text('ツモ：2'), findsOneWidget);
+      testTsumoKo(
+        expectYakuNames: [
+          hatsu,
+        ],
+        han: 2,
+        fu: 40,
+        scoreKo: 700,
+        scoreOya: 1300,
+        fuKihon: 20,
+        fuMentsu: 12,
+        fuAtama: 0,
+        fuMachi: 0,
+        fuTsumo: 2,
+      );
     });
 
     testWidgets('東3局 0本場', (WidgetTester tester) async {
@@ -105,28 +111,24 @@ void main() {
         ),
       );
 
-      expect(find.text('立直'), findsOneWidget);
-      expect(find.text('平和'), findsOneWidget);
-      expect(find.text('門前自摸'), findsOneWidget);
-      expect(find.text('一発'), findsOneWidget);
-
-      expect(find.text('6翻'),
-          findsNWidgets(2)); // 1翻,2翻,3翻,6翻,役満は役選択部分にもテキストがあるため、2widgetヒットする
-      expect(find.text('20符'), findsOneWidget);
-
-      expect(find.text('子：3000点'), findsOneWidget);
-      expect(find.text('親：6000点'), findsOneWidget);
-
-      expect(find.text('基本：20'), findsOneWidget);
-      expect(find.text('面子：0'), findsOneWidget);
-      expect(find.text('アタマ：0'), findsOneWidget);
-      expect(find.text('待ち：0'), findsOneWidget);
-      expect(find.text('ツモ：0'), findsOneWidget);
+      testTsumoKo(
+        expectYakuNames: [
+          reach,
+          pinfu,
+          tsumo,
+          ippatsu,
+        ],
+        han: 6,
+        fu: 20,
+        scoreKo: 3000,
+        scoreOya: 6000,
+        fuKihon: 20,
+        fuMentsu: 0,
+        fuAtama: 0,
+        fuMachi: 0,
+        fuTsumo: 0,
+      );
     });
-
-    // 東4局 0本場：流局
-    // 南1局 1本場：流局
-    // 南1局 2本場：流局
 
     testWidgets('南1局 3本場', (WidgetTester tester) async {
       await tester.pumpWidget(
@@ -149,20 +151,20 @@ void main() {
         ),
       );
 
-      expect(find.text('南（場）'), findsOneWidget);
-      expect(find.text('南（風）'), findsOneWidget);
-
-      expect(find.text('2翻'),
-          findsNWidgets(2)); // 1翻,2翻,3翻,6翻,役満は役選択部分にもテキストがあるため、2widgetヒットする
-      expect(find.text('30符'), findsOneWidget);
-
-      expect(find.text('2900点'), findsOneWidget);
-
-      expect(find.text('基本：20'), findsOneWidget);
-      expect(find.text('面子：6'), findsOneWidget);
-      expect(find.text('アタマ：0'), findsOneWidget);
-      expect(find.text('待ち：0'), findsOneWidget);
-      expect(find.text('ツモ：0'), findsOneWidget);
+      testRon(
+        expectYakuNames: [
+          nanBa,
+          nanKaze,
+        ],
+        han: 2,
+        fu: 30,
+        score: 2900,
+        fuKihon: 20,
+        fuMentsu: 6,
+        fuAtama: 0,
+        fuMachi: 0,
+        fuTsumo: 0,
+      );
     });
 
     testWidgets('南2局 0本場', (WidgetTester tester) async {
@@ -185,19 +187,19 @@ void main() {
         ),
       );
 
-      expect(find.text('平和'), findsOneWidget);
-
-      expect(find.text('1翻'),
-          findsNWidgets(2)); // 1翻,2翻,3翻,6翻,役満は役選択部分にもテキストがあるため、2widgetヒットする
-      expect(find.text('30符'), findsOneWidget);
-
-      expect(find.text('1000点'), findsOneWidget);
-
-      expect(find.text('基本：30'), findsOneWidget);
-      expect(find.text('面子：0'), findsOneWidget);
-      expect(find.text('アタマ：0'), findsOneWidget);
-      expect(find.text('待ち：0'), findsOneWidget);
-      expect(find.text('ツモ：0'), findsOneWidget);
+      testRon(
+        expectYakuNames: [
+          pinfu,
+        ],
+        han: 1,
+        fu: 30,
+        score: 1000,
+        fuKihon: 30,
+        fuMentsu: 0,
+        fuAtama: 0,
+        fuMachi: 0,
+        fuTsumo: 0,
+      );
     });
 
     testWidgets('南3局 0本場', (WidgetTester tester) async {
@@ -220,19 +222,19 @@ void main() {
         ),
       );
 
-      expect(find.text('七対子'), findsOneWidget);
-
-      expect(find.text('4翻'),
-          findsNWidgets(1)); // 1翻,2翻,3翻,6翻,役満は役選択部分にもテキストがあるため、2widgetヒットする
-      expect(find.text('25符'), findsOneWidget);
-
-      expect(find.text('6400点'), findsOneWidget);
-
-      expect(find.text('基本：25'), findsOneWidget);
-      expect(find.text('面子：0'), findsOneWidget);
-      expect(find.text('アタマ：0'), findsOneWidget);
-      expect(find.text('待ち：0'), findsOneWidget);
-      expect(find.text('ツモ：0'), findsOneWidget);
+      testRon(
+        expectYakuNames: [
+          chitoitsu,
+        ],
+        han: 4,
+        fu: 25,
+        score: 6400,
+        fuKihon: 25,
+        fuMentsu: 0,
+        fuAtama: 0,
+        fuMachi: 0,
+        fuTsumo: 0,
+      );
     });
 
     testWidgets('南4局 0本場', (WidgetTester tester) async {
@@ -255,19 +257,19 @@ void main() {
         ),
       );
 
-      expect(find.text('發'), findsOneWidget);
-
-      expect(find.text('2翻'),
-          findsNWidgets(2)); // 1翻,2翻,3翻,6翻,役満は役選択部分にもテキストがあるため、2widgetヒットする
-      expect(find.text('30符'), findsOneWidget);
-
-      expect(find.text('2000点'), findsOneWidget);
-
-      expect(find.text('基本：20'), findsOneWidget);
-      expect(find.text('面子：4'), findsOneWidget);
-      expect(find.text('アタマ：0'), findsOneWidget);
-      expect(find.text('待ち：0'), findsOneWidget);
-      expect(find.text('ツモ：0'), findsOneWidget);
+      testRon(
+        expectYakuNames: [
+          hatsu,
+        ],
+        han: 2,
+        fu: 30,
+        score: 2000,
+        fuKihon: 20,
+        fuMentsu: 4,
+        fuAtama: 0,
+        fuMachi: 0,
+        fuTsumo: 0,
+      );
     });
   });
 
@@ -292,19 +294,19 @@ void main() {
         ),
       );
 
-      expect(find.text('發'), findsOneWidget);
-
-      expect(find.text('1翻'),
-          findsNWidgets(2)); // 1翻,2翻,3翻,6翻,役満は役選択部分にもテキストがあるため、2widgetヒットする
-      expect(find.text('30符'), findsOneWidget);
-
-      expect(find.text('1000点'), findsOneWidget);
-
-      expect(find.text('基本：20'), findsOneWidget);
-      expect(find.text('面子：4'), findsOneWidget);
-      expect(find.text('アタマ：0'), findsOneWidget);
-      expect(find.text('待ち：0'), findsOneWidget);
-      expect(find.text('ツモ：0'), findsOneWidget);
+      testRon(
+        expectYakuNames: [
+          hatsu,
+        ],
+        han: 1,
+        fu: 30,
+        score: 1000,
+        fuKihon: 20,
+        fuMentsu: 4,
+        fuAtama: 0,
+        fuMachi: 0,
+        fuTsumo: 0,
+      );
     });
 
     testWidgets('東2局 0本場', (WidgetTester tester) async {
@@ -329,21 +331,21 @@ void main() {
         ),
       );
 
-      expect(find.text('立直'), findsOneWidget);
-      expect(find.text('平和'), findsOneWidget);
-      expect(find.text('門前自摸'), findsOneWidget);
-
-      expect(find.text('5翻'),
-          findsNWidgets(1)); // 1翻,2翻,3翻,6翻,役満は役選択部分にもテキストがあるため、2widgetヒットする
-      expect(find.text('20符'), findsOneWidget);
-
-      expect(find.text('4000点 all'), findsOneWidget);
-
-      expect(find.text('基本：20'), findsOneWidget);
-      expect(find.text('面子：0'), findsOneWidget);
-      expect(find.text('アタマ：0'), findsOneWidget);
-      expect(find.text('待ち：0'), findsOneWidget);
-      expect(find.text('ツモ：0'), findsOneWidget);
+      testTsumoOya(
+        expectYakuNames: [
+          reach,
+          pinfu,
+          tsumo,
+        ],
+        han: 5,
+        fu: 20,
+        score: 4000,
+        fuKihon: 20,
+        fuMentsu: 0,
+        fuAtama: 0,
+        fuMachi: 0,
+        fuTsumo: 0,
+      );
     });
 
     testWidgets('東2局 1本場', (WidgetTester tester) async {
@@ -366,19 +368,19 @@ void main() {
         ),
       );
 
-      expect(find.text('立直'), findsOneWidget);
-
-      expect(find.text('2翻'),
-          findsNWidgets(2)); // 1翻,2翻,3翻,6翻,役満は役選択部分にもテキストがあるため、2widgetヒットする
-      expect(find.text('40符'), findsOneWidget);
-
-      expect(find.text('2900点'), findsOneWidget);
-
-      expect(find.text('基本：30'), findsOneWidget);
-      expect(find.text('面子：4'), findsOneWidget);
-      expect(find.text('アタマ：0'), findsOneWidget);
-      expect(find.text('待ち：0'), findsOneWidget);
-      expect(find.text('ツモ：0'), findsOneWidget);
+      testRon(
+        expectYakuNames: [
+          reach,
+        ],
+        han: 2,
+        fu: 40,
+        score: 2900,
+        fuKihon: 30,
+        fuMentsu: 4,
+        fuAtama: 0,
+        fuMachi: 0,
+        fuTsumo: 0,
+      );
     });
 
     testWidgets('東3局 0本場', (WidgetTester tester) async {
@@ -402,20 +404,20 @@ void main() {
         ),
       );
 
-      expect(find.text('立直'), findsOneWidget);
-      expect(find.text('發'), findsOneWidget);
-
-      expect(find.text('2翻'),
-          findsNWidgets(2)); // 1翻,2翻,3翻,6翻,役満は役選択部分にもテキストがあるため、2widgetヒットする
-      expect(find.text('40符'), findsOneWidget);
-
-      expect(find.text('2600点'), findsOneWidget);
-
-      expect(find.text('基本：30'), findsOneWidget);
-      expect(find.text('面子：4'), findsOneWidget);
-      expect(find.text('アタマ：0'), findsOneWidget);
-      expect(find.text('待ち：0'), findsOneWidget);
-      expect(find.text('ツモ：0'), findsOneWidget);
+      testRon(
+        expectYakuNames: [
+          reach,
+          hatsu,
+        ],
+        han: 2,
+        fu: 40,
+        score: 2600,
+        fuKihon: 30,
+        fuMentsu: 4,
+        fuAtama: 0,
+        fuMachi: 0,
+        fuTsumo: 0,
+      );
     });
 
     testWidgets('東4局 0本場', (WidgetTester tester) async {
@@ -439,20 +441,20 @@ void main() {
         ),
       );
 
-      expect(find.text('立直'), findsOneWidget);
-      expect(find.text('北'), findsOneWidget);
-
-      expect(find.text('4翻'),
-          findsNWidgets(1)); // 1翻,2翻,3翻,6翻,役満は役選択部分にもテキストがあるため、2widgetヒットする
-      expect(find.text('40符'), findsOneWidget);
-
-      expect(find.text('8000点'), findsOneWidget);
-
-      expect(find.text('基本：30'), findsOneWidget);
-      expect(find.text('面子：8'), findsOneWidget);
-      expect(find.text('アタマ：0'), findsOneWidget);
-      expect(find.text('待ち：0'), findsOneWidget);
-      expect(find.text('ツモ：0'), findsOneWidget);
+      testRon(
+        expectYakuNames: [
+          reach,
+          pei,
+        ],
+        han: 4,
+        fu: 40,
+        score: 8000,
+        fuKihon: 30,
+        fuMentsu: 8,
+        fuAtama: 0,
+        fuMachi: 0,
+        fuTsumo: 0,
+      );
     });
 
     testWidgets('南1局 0本場', (WidgetTester tester) async {
@@ -477,25 +479,23 @@ void main() {
         ),
       );
 
-      expect(find.text('立直'), findsOneWidget);
-      expect(find.text('一発'), findsOneWidget);
-      expect(find.text('門前自摸'), findsOneWidget);
-
-      expect(find.text('6翻'),
-          findsNWidgets(2)); // 1翻,2翻,3翻,6翻,役満は役選択部分にもテキストがあるため、2widgetヒットする
-      expect(find.text('30符'), findsOneWidget);
-
-      expect(find.text('子：3000点'), findsOneWidget);
-      expect(find.text('親：6000点'), findsOneWidget);
-
-      expect(find.text('基本：20'), findsOneWidget);
-      expect(find.text('面子：8'), findsOneWidget);
-      expect(find.text('アタマ：0'), findsOneWidget);
-      expect(find.text('待ち：0'), findsOneWidget);
-      expect(find.text('ツモ：2'), findsOneWidget);
+      testTsumoKo(
+        expectYakuNames: [
+          reach,
+          ippatsu,
+          tsumo,
+        ],
+        han: 6,
+        fu: 30,
+        scoreKo: 3000,
+        scoreOya: 6000,
+        fuKihon: 20,
+        fuMentsu: 8,
+        fuAtama: 0,
+        fuMachi: 0,
+        fuTsumo: 2,
+      );
     });
-
-    // 南2局 0本場：流局
 
     testWidgets('南2局 1本場', (WidgetTester tester) async {
       await tester.pumpWidget(
@@ -519,21 +519,21 @@ void main() {
         ),
       );
 
-      expect(find.text('立直'), findsOneWidget);
-      expect(find.text('一発'), findsOneWidget);
-      expect(find.text('平和'), findsOneWidget);
-
-      expect(find.text('5翻'),
-          findsNWidgets(1)); // 1翻,2翻,3翻,6翻,役満は役選択部分にもテキストがあるため、2widgetヒットする
-      expect(find.text('30符'), findsOneWidget);
-
-      expect(find.text('8300点'), findsOneWidget);
-
-      expect(find.text('基本：30'), findsOneWidget);
-      expect(find.text('面子：0'), findsOneWidget);
-      expect(find.text('アタマ：0'), findsOneWidget);
-      expect(find.text('待ち：0'), findsOneWidget);
-      expect(find.text('ツモ：0'), findsOneWidget);
+      testRon(
+        expectYakuNames: [
+          reach,
+          ippatsu,
+          pinfu,
+        ],
+        han: 5,
+        fu: 30,
+        score: 8300,
+        fuKihon: 30,
+        fuMentsu: 0,
+        fuAtama: 0,
+        fuMachi: 0,
+        fuTsumo: 0,
+      );
     });
 
     testWidgets('南3局 0本場', (WidgetTester tester) async {
@@ -556,22 +556,20 @@ void main() {
         ),
       );
 
-      expect(find.text('平和'), findsOneWidget);
-
-      expect(find.text('1翻'),
-          findsNWidgets(2)); // 1翻,2翻,3翻,6翻,役満は役選択部分にもテキストがあるため、2widgetヒットする
-      expect(find.text('30符'), findsOneWidget);
-
-      expect(find.text('1000点'), findsOneWidget);
-
-      expect(find.text('基本：30'), findsOneWidget);
-      expect(find.text('面子：0'), findsOneWidget);
-      expect(find.text('アタマ：0'), findsOneWidget);
-      expect(find.text('待ち：0'), findsOneWidget);
-      expect(find.text('ツモ：0'), findsOneWidget);
+      testRon(
+        expectYakuNames: [
+          pinfu,
+        ],
+        han: 1,
+        fu: 30,
+        score: 1000,
+        fuKihon: 30,
+        fuMentsu: 0,
+        fuAtama: 0,
+        fuMachi: 0,
+        fuTsumo: 0,
+      );
     });
-
-    // 南4局 0本場：流局
 
     testWidgets('南4局 1本場', (WidgetTester tester) async {
       await tester.pumpWidget(
@@ -593,19 +591,19 @@ void main() {
         ),
       );
 
-      expect(find.text('東（風）'), findsOneWidget);
-
-      expect(find.text('3翻'),
-          findsNWidgets(2)); // 1翻,2翻,3翻,6翻,役満は役選択部分にもテキストがあるため、2widgetヒットする
-      expect(find.text('30符'), findsOneWidget);
-
-      expect(find.text('2100点 all'), findsOneWidget);
-
-      expect(find.text('基本：20'), findsOneWidget);
-      expect(find.text('面子：8'), findsOneWidget);
-      expect(find.text('アタマ：0'), findsOneWidget);
-      expect(find.text('待ち：0'), findsOneWidget);
-      expect(find.text('ツモ：2'), findsOneWidget);
+      testTsumoOya(
+        expectYakuNames: [
+          tonKaze,
+        ],
+        han: 3,
+        fu: 30,
+        score: 2100,
+        fuKihon: 20,
+        fuMentsu: 8,
+        fuAtama: 0,
+        fuMachi: 0,
+        fuTsumo: 2,
+      );
     });
 
     testWidgets('南4局 2本場', (WidgetTester tester) async {
@@ -628,19 +626,19 @@ void main() {
         ),
       );
 
-      expect(find.text('断么九'), findsOneWidget);
-
-      expect(find.text('1翻'),
-          findsNWidgets(2)); // 1翻,2翻,3翻,6翻,役満は役選択部分にもテキストがあるため、2widgetヒットする
-      expect(find.text('30符'), findsOneWidget);
-
-      expect(find.text('700点 all'), findsOneWidget);
-
-      expect(find.text('基本：20'), findsOneWidget);
-      expect(find.text('面子：4'), findsOneWidget);
-      expect(find.text('アタマ：0'), findsOneWidget);
-      expect(find.text('待ち：0'), findsOneWidget);
-      expect(find.text('ツモ：2'), findsOneWidget);
+      testTsumoOya(
+        expectYakuNames: [
+          tanyao,
+        ],
+        han: 1,
+        fu: 30,
+        score: 700,
+        fuKihon: 20,
+        fuMentsu: 4,
+        fuAtama: 0,
+        fuMachi: 0,
+        fuTsumo: 2,
+      );
     });
 
     testWidgets('南4局 3本場', (WidgetTester tester) async {
@@ -664,20 +662,20 @@ void main() {
         ),
       );
 
-      expect(find.text('南（場）'), findsOneWidget);
-      expect(find.text('南（風）'), findsOneWidget);
-
-      expect(find.text('3翻'),
-          findsNWidgets(2)); // 1翻,2翻,3翻,6翻,役満は役選択部分にもテキストがあるため、2widgetヒットする
-      expect(find.text('30符'), findsOneWidget);
-
-      expect(find.text('4800点'), findsOneWidget);
-
-      expect(find.text('基本：20'), findsOneWidget);
-      expect(find.text('面子：4'), findsOneWidget);
-      expect(find.text('アタマ：0'), findsOneWidget);
-      expect(find.text('待ち：0'), findsOneWidget);
-      expect(find.text('ツモ：0'), findsOneWidget);
+      testRon(
+        expectYakuNames: [
+          nanBa,
+          nanKaze,
+        ],
+        han: 3,
+        fu: 30,
+        score: 4800,
+        fuKihon: 20,
+        fuMentsu: 4,
+        fuAtama: 0,
+        fuMachi: 0,
+        fuTsumo: 0,
+      );
     });
   });
 }

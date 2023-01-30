@@ -20,6 +20,10 @@ class ResultFuTsumo extends ConsumerWidget {
       fu = 2;
     }
 
-    return ResultFuDetailItem(title: 'ツモ', fu: fu);
+    return ResultFuDetailItem(
+      title: 'ツモ',
+      fu: fu,
+      keyFu: 'fu-tsumo',
+    );
   }
 }

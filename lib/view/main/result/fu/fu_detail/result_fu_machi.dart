@@ -18,6 +18,10 @@ class ResultFuMachi extends ConsumerWidget {
       fu = mapFuMachi[ref.watch(machiProvider)]!;
     }
 
-    return ResultFuDetailItem(title: '待ち', fu: fu);
+    return ResultFuDetailItem(
+      title: '待ち',
+      fu: fu,
+      keyFu: 'fu-machi',
+    );
   }
 }

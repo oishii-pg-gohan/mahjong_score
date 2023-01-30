@@ -12,6 +12,10 @@ class ResultFuAtama extends ConsumerWidget {
     FuAtama fuAtama = ref.watch(atamaProvider);
     int fu = mapFuAtama[fuAtama]!;
 
-    return ResultFuDetailItem(title: 'アタマ', fu: fu);
+    return ResultFuDetailItem(
+      title: 'アタマ',
+      fu: fu,
+      keyFu: 'fu-atama',
+    );
   }
 }
