@@ -1,0 +1,1 @@
+flutter test && flutter build web
