@@ -71,6 +71,9 @@ const kokushimuso = '国士無双';
 const tenho = '天和';
 const chiho = '地和';
 
+/// Widgetテスト用のProviderScopeを生成します。
+/// 各条件のstateProviderを指定された引数を返却するように上書きします。
+///
 ProviderScope createTestProviderScope({
   required List<YakuId> yakus,
   required int dora,
@@ -130,17 +133,23 @@ ProviderScope createTestProviderScope({
   );
 }
 
+/// 指定されたkeyのTextWidgetの値を取得します。
+///
 String? getTextValue(String key) {
   final widget = find.byKey(ValueKey(key)).evaluate().single.widget as Text;
   return widget.data;
 }
 
+/// 指定されたkeyのWrapWidgetの子Widgetの数を取得します。
+///
 int getWrapSize(String key) {
   final Wrap widget =
       find.byKey(ValueKey(key)).evaluate().single.widget as Wrap;
   return widget.children.length;
 }
 
+/// ロン和了時の表示テストを行います。
+///
 void testRon({
   required List<String> expectYakuNames,
   required int han,
@@ -166,11 +175,22 @@ void testRon({
   expect(getTextValue('result-score-ron'), '$score点');
 }
 
+void testYakumanRon({
+  required List<String> expectYakuNames,
+  required int score,
+}) {
+  _testHoraYakuman(expectYakuNames: expectYakuNames);
+
+  expect(getTextValue('result-score-ron'), '$score点');
+}
+
+/// ツモ和了（親）時の表示テストを行います。
+///
 void testTsumoOya({
   required List<String> expectYakuNames,
   required int han,
   required int fu,
-  required int score,
+  required int scoreAll,
   required int fuKihon,
   required int fuMentsu,
   required int fuAtama,
@@ -188,9 +208,11 @@ void testTsumoOya({
     fuTsumo: fuTsumo,
   );
 
-  expect(getTextValue('result-score-tsumo-oya'), '$score点 all');
+  expect(getTextValue('result-score-tsumo-oya'), '$scoreAll点 all');
 }
 
+/// ツモ和了（子）時の表示テストを行います。
+///
 void testTsumoKo({
   required List<String> expectYakuNames,
   required int han,
@@ -218,6 +240,8 @@ void testTsumoKo({
   expect(getTextValue('result-score-tsumo-ko-oya'), '親：$scoreOya点');
 }
 
+/// 和了時共通の表示テストを行います。
+///
 void _testHoraCommon({
   required List<String> expectYakuNames,
   required int han,
@@ -241,4 +265,20 @@ void _testHoraCommon({
   expect(getTextValue('fu-atama'), 'アタマ：$fuAtama');
   expect(getTextValue('fu-machi'), '待ち：$fuMachi');
   expect(getTextValue('fu-tsumo'), 'ツモ：$fuTsumo');
+}
+
+void _testHoraYakuman({required List<String> expectYakuNames}) {
+  expect(getWrapSize('selected-yakus'), expectYakuNames.length);
+
+  for (int i = 0; i < expectYakuNames.length; i++) {
+    expect(getTextValue('selected-yaku-$i'), expectYakuNames[i]);
+  }
+
+  expect(getTextValue('result-han-none'), '-翻');
+  expect(getTextValue('result-fu-none'), '-符');
+  expect(getTextValue('fu-kihon-none'), '基本：-');
+  expect(getTextValue('fu-mentsu-none'), '面子：-');
+  expect(getTextValue('fu-atama-none'), 'アタマ：-');
+  expect(getTextValue('fu-machi-none'), '待ち：-');
+  expect(getTextValue('fu-tsumo-none'), 'ツモ：-');
 }

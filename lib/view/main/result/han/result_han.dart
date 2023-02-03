@@ -17,6 +17,7 @@ class ResultHan extends ConsumerWidget {
         child: Text(
           '-翻',
           style: TextStyle(fontSize: 26),
+          key: ValueKey('result-han-none'),
         ),
       );
     }

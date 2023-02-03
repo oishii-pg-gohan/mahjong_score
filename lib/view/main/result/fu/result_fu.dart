@@ -24,6 +24,7 @@ class ResultFu extends ConsumerWidget {
         child: Text(
           '-符',
           style: TextStyle(fontSize: 26),
+          key: ValueKey('result-fu-none'),
         ),
       );
     }
