@@ -14,38 +14,38 @@ void main() {
       await tester.pumpWidget(
         createTestProviderScope(
           yakus: [
+            YakuId.pinfu,
+            YakuId.ipeiko,
             YakuId.reach,
-            YakuId.tsumo,
           ],
-          dora: 2,
+          dora: 0,
           honba: 0,
           menzen: true,
-          tsumo: true,
+          tsumo: false,
           oya: false,
           mentsu1: FuMentsu.shuntsu,
           mentsu2: FuMentsu.shuntsu,
           mentsu3: FuMentsu.shuntsu,
-          mentsu4: FuMentsu.chuchanpaiAnko,
-          atama: FuAtama.otakaze,
+          mentsu4: FuMentsu.shuntsu,
+          atama: FuAtama.sangenpai,
           machi: FuMachi.ryanmen,
         ),
       );
 
-      expect(find.text('立直'), findsOneWidget);
-      expect(find.text('門前自摸'), findsOneWidget);
-
-      expect(getTextValue('result-han'), '4翻');
-
-      expect(find.text('30符'), findsOneWidget);
-
-      expect(find.text('子：2000点'), findsOneWidget);
-      expect(find.text('親：4000点'), findsOneWidget);
-
-      expect(find.text('基本：20'), findsOneWidget);
-      expect(find.text('面子：4'), findsOneWidget);
-      expect(find.text('アタマ：0'), findsOneWidget);
-      expect(find.text('待ち：0'), findsOneWidget);
-      expect(find.text('ツモ：2'), findsOneWidget);
+      testRon(
+        expectYakuNames: [
+          reach,
+          sanshokudojun,
+        ],
+        han: 3,
+        fu: 40,
+        score: 5200,
+        fuKihon: 30,
+        fuMentsu: 0,
+        fuAtama: 2,
+        fuMachi: 0,
+        fuTsumo: 0,
+      );
     });
   });
 }

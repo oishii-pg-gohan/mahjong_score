@@ -48,29 +48,6 @@ void main() {
         fuMachi: 0,
         fuTsumo: 0,
       );
-      // expect(getWrapSize('selected-yakus'), yakus.length);
-
-      // expect(getTextValue('selected-yaku-0'), chun);
-
-      // int han = 2;
-      // int fu = 40;
-      // int fuKihon = 20;
-      // int fuMentsu = 12;
-      // int fuAtama = 0;
-      // int fuMachi = 0;
-      // int fuTsumo = 0;
-
-      // expect(find.text('2600点'), findsOneWidget);
-
-      // expect(getTextValue('result-han'), '$han翻');
-
-      // expect(getTextValue('result-fu'), '$fu符');
-
-      // expect(getTextValue('fu-kihon'), '基本：$fuKihon');
-      // expect(getTextValue('fu-mentsu'), '面子：$fuMentsu');
-      // expect(getTextValue('fu-atama'), 'アタマ：$fuAtama');
-      // expect(getTextValue('fu-machi'), '待ち：$fuMachi');
-      // expect(getTextValue('fu-tsumo'), 'ツモ：$fuTsumo');
     });
 
     testWidgets('東2局 0本場', (WidgetTester tester) async {
@@ -115,33 +92,6 @@ void main() {
         fuMachi: 0,
         fuTsumo: 0,
       );
-      // expect(getWrapSize('selected-yakus'), yakus.length);
-
-      // expect(getTextValue('selected-yaku-0'), tsumo);
-      // expect(getTextValue('selected-yaku-1'), reach);
-      // expect(getTextValue('selected-yaku-2'), ippatsu);
-      // expect(getTextValue('selected-yaku-3'), chitoitsu);
-
-      // int han = 5;
-      // int fu = 25;
-      // int fuKihon = 25;
-      // int fuMentsu = 0;
-      // int fuAtama = 0;
-      // int fuMachi = 0;
-      // int fuTsumo = 0;
-
-      // expect(find.text('子：2000点'), findsOneWidget);
-      // expect(find.text('親：4000点'), findsOneWidget);
-
-      // expect(getTextValue('result-han'), '$han翻');
-
-      // expect(getTextValue('result-fu'), '$fu符');
-
-      // expect(getTextValue('fu-kihon'), '基本：$fuKihon');
-      // expect(getTextValue('fu-mentsu'), '面子：$fuMentsu');
-      // expect(getTextValue('fu-atama'), 'アタマ：$fuAtama');
-      // expect(getTextValue('fu-machi'), '待ち：$fuMachi');
-      // expect(getTextValue('fu-tsumo'), 'ツモ：$fuTsumo');
     });
 
     testWidgets('東3局 0本場', (WidgetTester tester) async {
@@ -183,31 +133,6 @@ void main() {
         fuMachi: 2,
         fuTsumo: 0,
       );
-      // expect(getWrapSize('selected-yakus'), yakus.length);
-
-      // expect(getTextValue('selected-yaku-0'), reach);
-      // expect(getTextValue('selected-yaku-1'), tanyao);
-      // expect(getTextValue('selected-yaku-2'), ipeiko);
-
-      // int han = 3;
-      // int fu = 40;
-      // int fuKihon = 30;
-      // int fuMentsu = 4;
-      // int fuAtama = 0;
-      // int fuMachi = 2;
-      // int fuTsumo = 0;
-
-      // expect(find.text('5200点'), findsOneWidget);
-
-      // expect(getTextValue('result-han'), '$han翻');
-
-      // expect(getTextValue('result-fu'), '$fu符');
-
-      // expect(getTextValue('fu-kihon'), '基本：$fuKihon');
-      // expect(getTextValue('fu-mentsu'), '面子：$fuMentsu');
-      // expect(getTextValue('fu-atama'), 'アタマ：$fuAtama');
-      // expect(getTextValue('fu-machi'), '待ち：$fuMachi');
-      // expect(getTextValue('fu-tsumo'), 'ツモ：$fuTsumo');
     });
 
     testWidgets('東4局 0本場', (WidgetTester tester) async {
@@ -248,31 +173,6 @@ void main() {
         fuMachi: 0,
         fuTsumo: 2,
       );
-      // int han = 4;
-      // int fu = 40;
-      // expect(find.text('子：2000点'), findsOneWidget);
-      // expect(find.text('親：4000点'), findsOneWidget);
-
-      // int fuKihon = 20;
-      // int fuMentsu = 14;
-      // int fuAtama = 0;
-      // int fuMachi = 0;
-      // int fuTsumo = 2;
-
-      // expect(getWrapSize('selected-yakus'), yakus.length);
-
-      // expect(getTextValue('selected-yaku-0'), haku);
-      // expect(getTextValue('selected-yaku-1'), toitoiho);
-
-      // expect(getTextValue('result-han'), '$han翻');
-
-      // expect(getTextValue('result-fu'), '$fu符');
-
-      // expect(getTextValue('fu-kihon'), '基本：$fuKihon');
-      // expect(getTextValue('fu-mentsu'), '面子：$fuMentsu');
-      // expect(getTextValue('fu-atama'), 'アタマ：$fuAtama');
-      // expect(getTextValue('fu-machi'), '待ち：$fuMachi');
-      // expect(getTextValue('fu-tsumo'), 'ツモ：$fuTsumo');
     });
 
     testWidgets('南1局 0本場', (WidgetTester tester) async {
@@ -305,37 +205,13 @@ void main() {
         ],
         han: 7,
         fu: 30,
-        score: 6000,
+        scoreAll: 6000,
         fuKihon: 20,
         fuMentsu: 8,
         fuAtama: 0,
         fuMachi: 0,
         fuTsumo: 2,
       );
-      // int han = 7;
-      // int fu = 30;
-      // expect(find.text('6000点 all'), findsOneWidget);
-
-      // int fuKihon = 20;
-      // int fuMentsu = 8;
-      // int fuAtama = 0;
-      // int fuMachi = 0;
-      // int fuTsumo = 2;
-
-      // expect(getWrapSize('selected-yakus'), yakus.length);
-
-      // expect(getTextValue('selected-yaku-0'), reach);
-      // expect(getTextValue('selected-yaku-1'), tsumo);
-
-      // expect(getTextValue('result-han'), '$han翻');
-
-      // expect(getTextValue('result-fu'), '$fu符');
-
-      // expect(getTextValue('fu-kihon'), '基本：$fuKihon');
-      // expect(getTextValue('fu-mentsu'), '面子：$fuMentsu');
-      // expect(getTextValue('fu-atama'), 'アタマ：$fuAtama');
-      // expect(getTextValue('fu-machi'), '待ち：$fuMachi');
-      // expect(getTextValue('fu-tsumo'), 'ツモ：$fuTsumo');
     });
 
     testWidgets('南1局 1本場', (WidgetTester tester) async {
@@ -375,30 +251,6 @@ void main() {
         fuMachi: 0,
         fuTsumo: 0,
       );
-      // int han = 4;
-      // int fu = 25;
-      // expect(find.text('9900点'), findsOneWidget);
-
-      // int fuKihon = 25;
-      // int fuMentsu = 0;
-      // int fuAtama = 0;
-      // int fuMachi = 0;
-      // int fuTsumo = 0;
-
-      // expect(getWrapSize('selected-yakus'), yakus.length);
-
-      // expect(getTextValue('selected-yaku-0'), reach);
-      // expect(getTextValue('selected-yaku-1'), chitoitsu);
-
-      // expect(getTextValue('result-han'), '$han翻');
-
-      // expect(getTextValue('result-fu'), '$fu符');
-
-      // expect(getTextValue('fu-kihon'), '基本：$fuKihon');
-      // expect(getTextValue('fu-mentsu'), '面子：$fuMentsu');
-      // expect(getTextValue('fu-atama'), 'アタマ：$fuAtama');
-      // expect(getTextValue('fu-machi'), '待ち：$fuMachi');
-      // expect(getTextValue('fu-tsumo'), 'ツモ：$fuTsumo');
     });
 
     testWidgets('南1局 2本場', (WidgetTester tester) async {
@@ -431,37 +283,13 @@ void main() {
         ],
         han: 3,
         fu: 30,
-        score: 2200,
+        scoreAll: 2200,
         fuKihon: 20,
         fuMentsu: 0,
         fuAtama: 0,
         fuMachi: 2,
         fuTsumo: 2,
       );
-      // int han = 3;
-      // int fu = 30;
-      // expect(find.text('2200点 all'), findsOneWidget);
-
-      // int fuKihon = 20;
-      // int fuMentsu = 0;
-      // int fuAtama = 0;
-      // int fuMachi = 2;
-      // int fuTsumo = 2;
-
-      // expect(getWrapSize('selected-yakus'), yakus.length);
-
-      // expect(getTextValue('selected-yaku-0'), reach);
-      // expect(getTextValue('selected-yaku-1'), tsumo);
-
-      // expect(getTextValue('result-han'), '$han翻');
-
-      // expect(getTextValue('result-fu'), '$fu符');
-
-      // expect(getTextValue('fu-kihon'), '基本：$fuKihon');
-      // expect(getTextValue('fu-mentsu'), '面子：$fuMentsu');
-      // expect(getTextValue('fu-atama'), 'アタマ：$fuAtama');
-      // expect(getTextValue('fu-machi'), '待ち：$fuMachi');
-      // expect(getTextValue('fu-tsumo'), 'ツモ：$fuTsumo');
     });
 
     testWidgets('南1局 3本場', (WidgetTester tester) async {
@@ -499,29 +327,6 @@ void main() {
         fuMachi: 0,
         fuTsumo: 0,
       );
-      // int han = 3;
-      // int fu = 30;
-      // expect(find.text('6700点'), findsOneWidget);
-
-      // int fuKihon = 20;
-      // int fuMentsu = 4;
-      // int fuAtama = 0;
-      // int fuMachi = 0;
-      // int fuTsumo = 0;
-
-      // expect(getWrapSize('selected-yakus'), yakus.length);
-
-      // expect(getTextValue('selected-yaku-0'), nanBa);
-
-      // expect(getTextValue('result-han'), '$han翻');
-
-      // expect(getTextValue('result-fu'), '$fu符');
-
-      // expect(getTextValue('fu-kihon'), '基本：$fuKihon');
-      // expect(getTextValue('fu-mentsu'), '面子：$fuMentsu');
-      // expect(getTextValue('fu-atama'), 'アタマ：$fuAtama');
-      // expect(getTextValue('fu-machi'), '待ち：$fuMachi');
-      // expect(getTextValue('fu-tsumo'), 'ツモ：$fuTsumo');
     });
 
     testWidgets('南1局 4本場', (WidgetTester tester) async {
@@ -554,37 +359,13 @@ void main() {
         ],
         han: 4,
         fu: 40,
-        score: 4400,
+        scoreAll: 4400,
         fuKihon: 20,
         fuMentsu: 16,
         fuAtama: 0,
         fuMachi: 0,
         fuTsumo: 2,
       );
-      // int han = 4;
-      // int fu = 40;
-      // expect(find.text('4400点 all'), findsOneWidget);
-
-      // int fuKihon = 20;
-      // int fuMentsu = 16;
-      // int fuAtama = 0;
-      // int fuMachi = 0;
-      // int fuTsumo = 2;
-
-      // expect(getWrapSize('selected-yakus'), yakus.length);
-
-      // expect(getTextValue('selected-yaku-0'), reach);
-      // expect(getTextValue('selected-yaku-1'), tsumo);
-
-      // expect(getTextValue('result-han'), '$han翻');
-
-      // expect(getTextValue('result-fu'), '$fu符');
-
-      // expect(getTextValue('fu-kihon'), '基本：$fuKihon');
-      // expect(getTextValue('fu-mentsu'), '面子：$fuMentsu');
-      // expect(getTextValue('fu-atama'), 'アタマ：$fuAtama');
-      // expect(getTextValue('fu-machi'), '待ち：$fuMachi');
-      // expect(getTextValue('fu-tsumo'), 'ツモ：$fuTsumo');
     });
 
     testWidgets('南1局 5本場', (WidgetTester tester) async {
@@ -624,30 +405,6 @@ void main() {
         fuMachi: 0,
         fuTsumo: 0,
       );
-      // int han = 4;
-      // int fu = 40;
-      // expect(find.text('9500点'), findsOneWidget);
-
-      // int fuKihon = 30;
-      // int fuMentsu = 8;
-      // int fuAtama = 2;
-      // int fuMachi = 0;
-      // int fuTsumo = 0;
-
-      // expect(getWrapSize('selected-yakus'), yakus.length);
-
-      // expect(getTextValue('selected-yaku-0'), reach);
-      // expect(getTextValue('selected-yaku-1'), hatsu);
-
-      // expect(getTextValue('result-han'), '$han翻');
-
-      // expect(getTextValue('result-fu'), '$fu符');
-
-      // expect(getTextValue('fu-kihon'), '基本：$fuKihon');
-      // expect(getTextValue('fu-mentsu'), '面子：$fuMentsu');
-      // expect(getTextValue('fu-atama'), 'アタマ：$fuAtama');
-      // expect(getTextValue('fu-machi'), '待ち：$fuMachi');
-      // expect(getTextValue('fu-tsumo'), 'ツモ：$fuTsumo');
     });
 
     testWidgets('南2局 1本場', (WidgetTester tester) async {
@@ -685,29 +442,6 @@ void main() {
         fuMachi: 0,
         fuTsumo: 0,
       );
-      // int han = 1;
-      // int fu = 30;
-      // expect(find.text('1800点'), findsOneWidget);
-
-      // int fuKihon = 20;
-      // int fuMentsu = 2;
-      // int fuAtama = 0;
-      // int fuMachi = 0;
-      // int fuTsumo = 0;
-
-      // expect(getWrapSize('selected-yakus'), yakus.length);
-
-      // expect(getTextValue('selected-yaku-0'), tanyao);
-
-      // expect(getTextValue('result-han'), '$han翻');
-
-      // expect(getTextValue('result-fu'), '$fu符');
-
-      // expect(getTextValue('fu-kihon'), '基本：$fuKihon');
-      // expect(getTextValue('fu-mentsu'), '面子：$fuMentsu');
-      // expect(getTextValue('fu-atama'), 'アタマ：$fuAtama');
-      // expect(getTextValue('fu-machi'), '待ち：$fuMachi');
-      // expect(getTextValue('fu-tsumo'), 'ツモ：$fuTsumo');
     });
 
     testWidgets('南2局 2本場', (WidgetTester tester) async {
@@ -748,31 +482,6 @@ void main() {
         fuMachi: 0,
         fuTsumo: 2,
       );
-      // int han = 3;
-      // int fu = 40;
-      // expect(find.text('子：1500点'), findsOneWidget);
-      // expect(find.text('親：2800点'), findsOneWidget);
-
-      // int fuKihon = 20;
-      // int fuMentsu = 12;
-      // int fuAtama = 0;
-      // int fuMachi = 0;
-      // int fuTsumo = 2;
-
-      // expect(getWrapSize('selected-yakus'), yakus.length);
-
-      // expect(getTextValue('selected-yaku-0'), nanBa);
-      // expect(getTextValue('selected-yaku-1'), nanKaze);
-
-      // expect(getTextValue('result-han'), '$han翻');
-
-      // expect(getTextValue('result-fu'), '$fu符');
-
-      // expect(getTextValue('fu-kihon'), '基本：$fuKihon');
-      // expect(getTextValue('fu-mentsu'), '面子：$fuMentsu');
-      // expect(getTextValue('fu-atama'), 'アタマ：$fuAtama');
-      // expect(getTextValue('fu-machi'), '待ち：$fuMachi');
-      // expect(getTextValue('fu-tsumo'), 'ツモ：$fuTsumo');
     });
 
     testWidgets('南3局 0本場', (WidgetTester tester) async {
@@ -812,30 +521,6 @@ void main() {
         fuMachi: 2,
         fuTsumo: 0,
       );
-      // int han = 7;
-      // int fu = 50;
-      // expect(find.text('18000点'), findsOneWidget);
-
-      // int fuKihon = 30;
-      // int fuMentsu = 12;
-      // int fuAtama = 2;
-      // int fuMachi = 2;
-      // int fuTsumo = 0;
-
-      // expect(getWrapSize('selected-yakus'), yakus.length);
-
-      // expect(getTextValue('selected-yaku-0'), hatsu);
-      // expect(getTextValue('selected-yaku-1'), honitsu);
-
-      // expect(getTextValue('result-han'), '$han翻');
-
-      // expect(getTextValue('result-fu'), '$fu符');
-
-      // expect(getTextValue('fu-kihon'), '基本：$fuKihon');
-      // expect(getTextValue('fu-mentsu'), '面子：$fuMentsu');
-      // expect(getTextValue('fu-atama'), 'アタマ：$fuAtama');
-      // expect(getTextValue('fu-machi'), '待ち：$fuMachi');
-      // expect(getTextValue('fu-tsumo'), 'ツモ：$fuTsumo');
     });
 
     testWidgets('南3局 1本場', (WidgetTester tester) async {
@@ -876,31 +561,6 @@ void main() {
         fuMachi: 2,
         fuTsumo: 2,
       );
-      // int han = 3;
-      // int fu = 40;
-      // expect(find.text('子：1400点'), findsOneWidget);
-      // expect(find.text('親：2700点'), findsOneWidget);
-
-      // int fuKihon = 20;
-      // int fuMentsu = 8;
-      // int fuAtama = 0;
-      // int fuMachi = 2;
-      // int fuTsumo = 2;
-
-      // expect(getWrapSize('selected-yakus'), yakus.length);
-
-      // expect(getTextValue('selected-yaku-0'), haku);
-      // expect(getTextValue('selected-yaku-1'), tsumo);
-
-      // expect(getTextValue('result-han'), '$han翻');
-
-      // expect(getTextValue('result-fu'), '$fu符');
-
-      // expect(getTextValue('fu-kihon'), '基本：$fuKihon');
-      // expect(getTextValue('fu-mentsu'), '面子：$fuMentsu');
-      // expect(getTextValue('fu-atama'), 'アタマ：$fuAtama');
-      // expect(getTextValue('fu-machi'), '待ち：$fuMachi');
-      // expect(getTextValue('fu-tsumo'), 'ツモ：$fuTsumo');
     });
 
     testWidgets('南4局 0本場', (WidgetTester tester) async {
@@ -938,29 +598,6 @@ void main() {
         fuMachi: 2,
         fuTsumo: 0,
       );
-      // int han = 1;
-      // int fu = 40;
-      // expect(find.text('1300点'), findsOneWidget);
-
-      // int fuKihon = 20;
-      // int fuMentsu = 12;
-      // int fuAtama = 0;
-      // int fuMachi = 2;
-      // int fuTsumo = 0;
-
-      // expect(getWrapSize('selected-yakus'), yakus.length);
-
-      // expect(getTextValue('selected-yaku-0'), pei);
-
-      // expect(getTextValue('result-han'), '$han翻');
-
-      // expect(getTextValue('result-fu'), '$fu符');
-
-      // expect(getTextValue('fu-kihon'), '基本：$fuKihon');
-      // expect(getTextValue('fu-mentsu'), '面子：$fuMentsu');
-      // expect(getTextValue('fu-atama'), 'アタマ：$fuAtama');
-      // expect(getTextValue('fu-machi'), '待ち：$fuMachi');
-      // expect(getTextValue('fu-tsumo'), 'ツモ：$fuTsumo');
     });
   });
 
@@ -995,37 +632,13 @@ void main() {
         ],
         han: 4,
         fu: 40,
-        score: 4100,
+        scoreAll: 4100,
         fuKihon: 20,
         fuMentsu: 12,
         fuAtama: 0,
         fuMachi: 0,
         fuTsumo: 2,
       );
-      // int han = 4;
-      // int fu = 40;
-      // expect(find.text('4100点 all'), findsOneWidget);
-
-      // int fuKihon = 20;
-      // int fuMentsu = 12;
-      // int fuAtama = 0;
-      // int fuMachi = 0;
-      // int fuTsumo = 2;
-
-      // expect(getWrapSize('selected-yakus'), yakus.length);
-
-      // expect(getTextValue('selected-yaku-0'), reach);
-      // expect(getTextValue('selected-yaku-1'), tsumo);
-
-      // expect(getTextValue('result-han'), '$han翻');
-
-      // expect(getTextValue('result-fu'), '$fu符');
-
-      // expect(getTextValue('fu-kihon'), '基本：$fuKihon');
-      // expect(getTextValue('fu-mentsu'), '面子：$fuMentsu');
-      // expect(getTextValue('fu-atama'), 'アタマ：$fuAtama');
-      // expect(getTextValue('fu-machi'), '待ち：$fuMachi');
-      // expect(getTextValue('fu-tsumo'), 'ツモ：$fuTsumo');
     });
 
     testWidgets('東2局 2本場', (WidgetTester tester) async {
@@ -1063,29 +676,6 @@ void main() {
         fuMachi: 2,
         fuTsumo: 0,
       );
-      // int han = 3;
-      // int fu = 40;
-      // expect(find.text('5800点'), findsOneWidget);
-
-      // int fuKihon = 30;
-      // int fuMentsu = 0;
-      // int fuAtama = 2;
-      // int fuMachi = 2;
-      // int fuTsumo = 0;
-
-      // expect(getWrapSize('selected-yakus'), yakus.length);
-
-      // expect(getTextValue('selected-yaku-0'), ikkitsukan);
-
-      // expect(getTextValue('result-han'), '$han翻');
-
-      // expect(getTextValue('result-fu'), '$fu符');
-
-      // expect(getTextValue('fu-kihon'), '基本：$fuKihon');
-      // expect(getTextValue('fu-mentsu'), '面子：$fuMentsu');
-      // expect(getTextValue('fu-atama'), 'アタマ：$fuAtama');
-      // expect(getTextValue('fu-machi'), '待ち：$fuMachi');
-      // expect(getTextValue('fu-tsumo'), 'ツモ：$fuTsumo');
     });
 
     testWidgets('東3局 0本場', (WidgetTester tester) async {
@@ -1123,29 +713,6 @@ void main() {
         fuMachi: 2,
         fuTsumo: 0,
       );
-      // int han = 2;
-      // int fu = 40;
-      // expect(find.text('2600点'), findsOneWidget);
-
-      // int fuKihon = 30;
-      // int fuMentsu = 8;
-      // int fuAtama = 0;
-      // int fuMachi = 2;
-      // int fuTsumo = 0;
-
-      // expect(getWrapSize('selected-yakus'), yakus.length);
-
-      // expect(getTextValue('selected-yaku-0'), reach);
-
-      // expect(getTextValue('result-han'), '$han翻');
-
-      // expect(getTextValue('result-fu'), '$fu符');
-
-      // expect(getTextValue('fu-kihon'), '基本：$fuKihon');
-      // expect(getTextValue('fu-mentsu'), '面子：$fuMentsu');
-      // expect(getTextValue('fu-atama'), 'アタマ：$fuAtama');
-      // expect(getTextValue('fu-machi'), '待ち：$fuMachi');
-      // expect(getTextValue('fu-tsumo'), 'ツモ：$fuTsumo');
     });
 
     testWidgets('東4局 0本場', (WidgetTester tester) async {
@@ -1183,29 +750,6 @@ void main() {
         fuMachi: 2,
         fuTsumo: 0,
       );
-      // int han = 1;
-      // int fu = 40;
-      // expect(find.text('1300点'), findsOneWidget);
-
-      // int fuKihon = 30;
-      // int fuMentsu = 0;
-      // int fuAtama = 0;
-      // int fuMachi = 2;
-      // int fuTsumo = 0;
-
-      // expect(getWrapSize('selected-yakus'), yakus.length);
-
-      // expect(getTextValue('selected-yaku-0'), tanyao);
-
-      // expect(getTextValue('result-han'), '$han翻');
-
-      // expect(getTextValue('result-fu'), '$fu符');
-
-      // expect(getTextValue('fu-kihon'), '基本：$fuKihon');
-      // expect(getTextValue('fu-mentsu'), '面子：$fuMentsu');
-      // expect(getTextValue('fu-atama'), 'アタマ：$fuAtama');
-      // expect(getTextValue('fu-machi'), '待ち：$fuMachi');
-      // expect(getTextValue('fu-tsumo'), 'ツモ：$fuTsumo');
     });
 
     testWidgets('南1局 0本場', (WidgetTester tester) async {
@@ -1246,31 +790,6 @@ void main() {
         fuMachi: 0,
         fuTsumo: 2,
       );
-      // int han = 2;
-      // int fu = 30;
-      // expect(find.text('子：500点'), findsOneWidget);
-      // expect(find.text('親：1000点'), findsOneWidget);
-
-      // int fuKihon = 20;
-      // int fuMentsu = 4;
-      // int fuAtama = 0;
-      // int fuMachi = 0;
-      // int fuTsumo = 2;
-
-      // expect(getWrapSize('selected-yakus'), yakus.length);
-
-      // expect(getTextValue('selected-yaku-0'), reach);
-      // expect(getTextValue('selected-yaku-1'), tsumo);
-
-      // expect(getTextValue('result-han'), '$han翻');
-
-      // expect(getTextValue('result-fu'), '$fu符');
-
-      // expect(getTextValue('fu-kihon'), '基本：$fuKihon');
-      // expect(getTextValue('fu-mentsu'), '面子：$fuMentsu');
-      // expect(getTextValue('fu-atama'), 'アタマ：$fuAtama');
-      // expect(getTextValue('fu-machi'), '待ち：$fuMachi');
-      // expect(getTextValue('fu-tsumo'), 'ツモ：$fuTsumo');
     });
 
     testWidgets('南3局 0本場', (WidgetTester tester) async {
@@ -1308,29 +827,6 @@ void main() {
         fuMachi: 0,
         fuTsumo: 0,
       );
-      // int han = 1;
-      // int fu = 30;
-      // expect(find.text('1300点'), findsOneWidget);
-
-      // int fuKihon = 20;
-      // int fuMentsu = 8;
-      // int fuAtama = 0;
-      // int fuMachi = 0;
-      // int fuTsumo = 0;
-
-      // expect(getWrapSize('selected-yakus'), yakus.length);
-
-      // expect(getTextValue('selected-yaku-0'), haku);
-
-      // expect(getTextValue('result-han'), '$han翻');
-
-      // expect(getTextValue('result-fu'), '$fu符');
-
-      // expect(getTextValue('fu-kihon'), '基本：$fuKihon');
-      // expect(getTextValue('fu-mentsu'), '面子：$fuMentsu');
-      // expect(getTextValue('fu-atama'), 'アタマ：$fuAtama');
-      // expect(getTextValue('fu-machi'), '待ち：$fuMachi');
-      // expect(getTextValue('fu-tsumo'), 'ツモ：$fuTsumo');
     });
 
     testWidgets('南4局 0本場', (WidgetTester tester) async {
@@ -1368,29 +864,6 @@ void main() {
         fuMachi: 0,
         fuTsumo: 0,
       );
-      // int han = 4;
-      // int fu = 40;
-      // expect(find.text('12000点'), findsOneWidget);
-
-      // int fuKihon = 30;
-      // int fuMentsu = 4;
-      // int fuAtama = 0;
-      // int fuMachi = 0;
-      // int fuTsumo = 0;
-
-      // expect(getWrapSize('selected-yakus'), yakus.length);
-
-      // expect(getTextValue('selected-yaku-0'), reach);
-
-      // expect(getTextValue('result-han'), '$han翻');
-
-      // expect(getTextValue('result-fu'), '$fu符');
-
-      // expect(getTextValue('fu-kihon'), '基本：$fuKihon');
-      // expect(getTextValue('fu-mentsu'), '面子：$fuMentsu');
-      // expect(getTextValue('fu-atama'), 'アタマ：$fuAtama');
-      // expect(getTextValue('fu-machi'), '待ち：$fuMachi');
-      // expect(getTextValue('fu-tsumo'), 'ツモ：$fuTsumo');
     });
 
     testWidgets('南4局 1本場', (WidgetTester tester) async {
@@ -1431,31 +904,6 @@ void main() {
         fuMachi: 2,
         fuTsumo: 2,
       );
-      // int han = 2;
-      // int fu = 30;
-      // expect(find.text('子：600点'), findsOneWidget);
-      // expect(find.text('親：1100点'), findsOneWidget);
-
-      // int fuKihon = 20;
-      // int fuMentsu = 0;
-      // int fuAtama = 0;
-      // int fuMachi = 2;
-      // int fuTsumo = 2;
-
-      // expect(getWrapSize('selected-yakus'), yakus.length);
-
-      // expect(getTextValue('selected-yaku-0'), tsumo);
-      // expect(getTextValue('selected-yaku-1'), ipeiko);
-
-      // expect(getTextValue('result-han'), '$han翻');
-
-      // expect(getTextValue('result-fu'), '$fu符');
-
-      // expect(getTextValue('fu-kihon'), '基本：$fuKihon');
-      // expect(getTextValue('fu-mentsu'), '面子：$fuMentsu');
-      // expect(getTextValue('fu-atama'), 'アタマ：$fuAtama');
-      // expect(getTextValue('fu-machi'), '待ち：$fuMachi');
-      // expect(getTextValue('fu-tsumo'), 'ツモ：$fuTsumo');
     });
   });
 }

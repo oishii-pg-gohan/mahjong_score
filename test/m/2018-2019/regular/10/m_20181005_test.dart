@@ -463,7 +463,7 @@ void main() {
         ],
         han: 6,
         fu: 20,
-        score: 6000,
+        scoreAll: 6000,
         fuKihon: 20,
         fuMentsu: 0,
         fuAtama: 0,
