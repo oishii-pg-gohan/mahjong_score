@@ -5,7 +5,7 @@ class Chanta extends Yaku2Han {
   Chanta()
       : super(
           id: YakuId.chanta,
-          name: '混全帯幺九',
+          name: '混全帯么九',
           hanNaki: 1,
           enabledNaki: true,
           enabledShareYakus: [

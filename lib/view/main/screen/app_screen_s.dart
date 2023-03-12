@@ -30,20 +30,35 @@ class AppScreenS extends ConsumerWidget {
         ),
         body: SingleChildScrollView(
           child: Center(
-            child: Container(
-              color: Colors.white,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: const [
-                  ConditionsAreaS(),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  ResultAreaS(),
-                  SizedBox(
-                    height: 100,
-                  ),
-                ],
+            child: ConstrainedBox(
+              constraints: const BoxConstraints(
+                maxWidth: 550,
+              ),
+              child: Container(
+                decoration: BoxDecoration(
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey[300]!,
+                      spreadRadius: 1,
+                      blurRadius: 3,
+                      offset: const Offset(1, 1),
+                    ),
+                  ],
+                  color: Colors.white,
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: const [
+                    ConditionsAreaS(),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    ResultAreaS(),
+                    SizedBox(
+                      height: 100,
+                    ),
+                  ],
+                ),
               ),
             ),
           ),

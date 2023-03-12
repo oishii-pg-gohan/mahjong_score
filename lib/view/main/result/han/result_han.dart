@@ -17,6 +17,7 @@ class ResultHan extends ConsumerWidget {
         child: Text(
           '-翻',
           style: TextStyle(fontSize: 26),
+          key: ValueKey('result-han-none'),
         ),
       );
     }
@@ -29,6 +30,7 @@ class ResultHan extends ConsumerWidget {
       child: Text(
         '${han + dora}翻',
         style: const TextStyle(fontSize: 26),
+        key: const ValueKey('result-han'),
       ),
     );
   }
